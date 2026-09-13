@@ -1,0 +1,2 @@
+// Small progressive-enhancement script. Replace the contact form handler with your backend/email service before launch.
+document.querySelectorAll('a[href]').forEach(a=>{if(a.hostname===location.hostname&&a.pathname===location.pathname)a.setAttribute('aria-current','page')});

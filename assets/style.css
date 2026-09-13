@@ -1,0 +1,69 @@
+
+:root{
+  --bg:#07090d; --panel:#0d1118; --panel2:#111722; --text:#f4f7fb;
+  --muted:#9aa6b5; --line:#202936; --accent:#b8ff4d; --accent2:#76e3ff;
+  --max:1180px; --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 80% -10%,rgba(118,227,255,.08),transparent 28rem),
+ radial-gradient(circle at 10% 10%,rgba(184,255,77,.06),transparent 25rem),
+ var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit;text-decoration:none}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 max(5vw,24px);
+ border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;
+ background:rgba(7,9,13,.78);backdrop-filter:blur(18px);z-index:20}
+.logo{font-size:23px;font-weight:850;letter-spacing:-1px}.logo span{color:var(--accent)}
+nav{display:flex;gap:20px;align-items:center;font-size:14px;color:#b8c1cd}
+nav a{transition:.2s}nav a:hover,nav a[aria-current="page"]{color:#fff}
+.nav-btn{border:1px solid #36404d;padding:9px 16px;border-radius:999px;color:#fff!important;background:#10151d}
+.hero{max-width:var(--max);margin:auto;min-height:680px;padding:120px 30px 90px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(184,255,77,.12);border-radius:50%;right:2%;top:90px;box-shadow:0 0 100px rgba(184,255,77,.06)}
+.eyebrow{font-size:11px;letter-spacing:.2em;color:var(--accent);font-weight:800;margin-bottom:18px}
+.hero h1,.page h1{font-size:clamp(50px,7vw,92px);line-height:.98;letter-spacing:-.065em;margin:0 0 28px;max-width:950px}
+.hero h1 span{color:#8e99a8}
+.hero p{max-width:730px;color:#aeb8c5;font-size:19px}
+.actions{display:flex;gap:22px;align-items:center;margin-top:36px;position:relative;z-index:2}
+.btn{display:inline-block;background:var(--accent);color:#071006;padding:13px 20px;border-radius:10px;font-weight:850;border:0;cursor:pointer;box-shadow:0 10px 35px rgba(184,255,77,.12);transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(184,255,77,.2)}
+.btn.secondary{background:transparent;color:#fff;border:1px solid #36404d;box-shadow:none}
+.text-link{color:#dce3eb}
+.stats{max-width:var(--max);display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin:0 auto 30px;border-radius:16px;overflow:hidden;background:rgba(13,17,24,.7)}
+.stats div{padding:25px;border-right:1px solid var(--line)}.stats div:last-child{border:0}
+.stats b{display:block;color:#697585;font-size:11px}.stats span{display:block;margin-top:5px}
+.section,.grid-section{max-width:var(--max);margin:auto;padding:110px 30px}
+.grid-section>div:first-child{max-width:650px}
+.grid-section h2,.banner h2{font-size:44px;line-height:1.04;letter-spacing:-.045em;margin-top:0}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:45px}
+.cards.three{grid-template-columns:repeat(3,1fr)}
+.card,.feature,.road>div{border:1px solid #222b37;background:linear-gradient(145deg,#0e131b,#0b0f15);padding:30px;border-radius:var(--radius);transition:.25s;position:relative;overflow:hidden}
+.card:before,.feature:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(184,255,77,.06),transparent 40%);opacity:0;transition:.25s}
+.card:hover,.feature:hover{transform:translateY(-5px);border-color:#3c4857;box-shadow:0 20px 50px rgba(0,0,0,.25)}.card:hover:before,.feature:hover:before{opacity:1}
+.card small{color:#697585}.card h3{font-size:26px;margin:35px 0 8px}.card p,.feature p,.road p{color:#9da9b8}
+.service-card{display:block}.service-card .tag{color:var(--accent2);font-size:11px;font-weight:800;letter-spacing:.14em}
+.service-card h3{margin-top:12px}
+.banner{max-width:var(--max);margin:20px auto 110px;padding:60px 50px;background:
+linear-gradient(135deg,rgba(184,255,77,.09),rgba(118,227,255,.05)),#0e131a;
+border:1px solid #293442;border-radius:22px;display:flex;align-items:center;justify-content:space-between}
+.page{max-width:var(--max);margin:auto;padding:105px 30px 130px}.lead{font-size:21px;color:#aeb8c5;max-width:800px;margin:0 0 70px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:80px}.two h2,.feature h2,.road h2{font-size:29px}
+.list{padding-left:20px;color:#b8c1cd}.list li{margin:12px 0}
+.quote{margin-top:80px;border-left:3px solid var(--accent);padding:20px 25px;font-size:25px;color:#dfe5ec}
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.feature b,.road b{font-size:11px;letter-spacing:.15em;color:var(--accent)}
+.timeline{display:grid;gap:14px}.timeline>div{padding:30px;border-bottom:1px solid #292d33}.timeline span{color:var(--accent);font-weight:800}
+.road{display:grid;gap:14px}.road>div{border-radius:14px}.road>div h2{margin-bottom:6px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:100px}.contact form{display:grid;gap:18px}
+label{color:#aeb8c5;font-size:14px}input,textarea{width:100%;margin-top:7px;padding:13px;background:#0d1118;border:1px solid #303a47;color:#fff;border-radius:9px;font:inherit}
+.legal{max-width:850px}.legal h2{margin-top:45px}
+.kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid #293442;border-radius:999px;padding:7px 11px;color:#b8c1cd;font-size:12px;margin-bottom:25px}
+.kicker i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+footer{border-top:1px solid #202936;padding:55px max(5vw,24px);color:#858f9c;display:grid;gap:10px}footer p{margin:0}footer a{margin-right:20px;color:#aeb8c5}footer small{margin-top:20px}
+@media(max-width:800px){
+ .nav{padding:0 5vw}.nav nav a:not(.nav-btn){display:none}
+ .hero{padding:95px 7vw 70px;min-height:auto}.hero:after{display:none}
+ .stats{grid-template-columns:1fr 1fr;margin:0 5vw}.stats div:nth-child(2){border-right:0}
+ .cards,.cards.three,.feature-grid,.two,.contact{grid-template-columns:1fr}
+ .grid-section,.section,.page{padding:75px 7vw}.banner{margin:0 5vw 70px;padding:38px 28px;display:block}
+ .banner .btn{margin-top:25px}.two{gap:35px}.hero h1,.page h1{font-size:52px}
+}
