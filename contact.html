@@ -33,9 +33,9 @@
     </div>
     <p style="color:#9da9b8;margin-bottom:24px;font-size:16px">Drop us a line with your project details, questions, or ideas. We review all inquiries and respond promptly.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a class="btn" href="mailto:siddhixtechsol@gmail.com?subject=Project%20Inquiry%20-%20SiddhiXTech">Send Email</a>
-      <a class="btn secondary" href="https://mail.google.com/mail/?view=cm&fs=1&to=siddhixtechsol@gmail.com&su=Project+Inquiry+-+SiddhiXTech" target="_blank" rel="noopener">Open in Gmail</a>
-      <button type="button" class="btn secondary" id="copy-btn" onclick="navigator.clipboard.writeText('siddhixtechsol@gmail.com').then(()=>{const b=document.getElementById('copy-btn');b.innerText='Copied!';setTimeout(()=>b.innerText='Copy Email',2000);})">Copy Email</button>
+      <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=siddhixtechsol@gmail.com&su=Project+Inquiry+-+SiddhiXTech" target="_blank" rel="noopener">Open in Gmail</a>
+      <a class="btn secondary" href="mailto:siddhixtechsol@gmail.com?subject=Project%20Inquiry%20-%20SiddhiXTech">Default Mail App</a>
+      <button type="button" class="btn secondary" id="copy-btn" onclick="copyEmail()">Copy Email</button>
     </div>
   </div>
 </main>
@@ -52,6 +52,44 @@
   </div>
   <small>© 2026 SiddhiXTech. All rights reserved.</small>
 </footer>
+
+<script>
+function copyEmail() {
+  var email = 'siddhixtechsol@gmail.com';
+  var btn = document.getElementById('copy-btn');
+  function markCopied() {
+    if (btn) {
+      btn.innerText = 'Copied!';
+      btn.style.color = '#fff';
+      setTimeout(function() {
+        btn.innerText = 'Copy Email';
+        btn.style.color = '';
+      }, 2000);
+    }
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(email).then(markCopied).catch(fallback);
+  } else {
+    fallback();
+  }
+  function fallback() {
+    var ta = document.createElement('textarea');
+    ta.value = email;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'absolute';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      markCopied();
+    } catch(err) {
+      prompt('Copy email address:', email);
+    }
+    document.body.removeChild(ta);
+  }
+}
+</script>
 <script src="assets/script.js"></script>
 </body>
 </html>

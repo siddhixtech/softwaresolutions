@@ -19,15 +19,16 @@ nav{display:flex;gap:20px;align-items:center;font-size:14px;color:#b8c1cd}
 nav a{transition:.2s}nav a:hover,nav a[aria-current="page"]{color:#fff}
 .nav-btn{border:1px solid #36404d;padding:9px 16px;border-radius:999px;color:#fff!important;background:#10151d}
 .hero{max-width:var(--max);margin:auto;min-height:680px;padding:120px 30px 90px;display:flex;flex-direction:column;justify-content:center;position:relative}
-.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(184,255,77,.12);border-radius:50%;right:2%;top:90px;box-shadow:0 0 100px rgba(184,255,77,.06)}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(184,255,77,.12);border-radius:50%;right:2%;top:90px;box-shadow:0 0 100px rgba(184,255,77,.06);pointer-events:none}
 .eyebrow{font-size:11px;letter-spacing:.2em;color:var(--accent);font-weight:800;margin-bottom:18px}
 .hero h1,.page h1{font-size:clamp(50px,7vw,92px);line-height:.98;letter-spacing:-.065em;margin:0 0 28px;max-width:950px}
 .hero h1 span{color:#8e99a8}
 .hero p{max-width:730px;color:#aeb8c5;font-size:19px}
 .actions{display:flex;gap:22px;align-items:center;margin-top:36px;position:relative;z-index:2}
-.btn{display:inline-block;background:var(--accent);color:#071006;padding:13px 20px;border-radius:10px;font-weight:850;border:0;cursor:pointer;box-shadow:0 10px 35px rgba(184,255,77,.12);transition:.2s}
+.btn{display:inline-block;background:var(--accent);color:#071006;padding:13px 20px;border-radius:10px;font-weight:850;border:0;cursor:pointer;box-shadow:0 10px 35px rgba(184,255,77,.12);transition:.2s;user-select:none}
 .btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(184,255,77,.2)}
 .btn.secondary{background:transparent;color:#fff;border:1px solid #36404d;box-shadow:none}
+.btn.secondary:hover{border-color:#5a687c}
 .text-link{color:#dce3eb}
 .stats{max-width:var(--max);display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin:0 auto 30px;border-radius:16px;overflow:hidden;background:rgba(13,17,24,.7)}
 .stats div{padding:25px;border-right:1px solid var(--line)}.stats div:last-child{border:0}
@@ -38,7 +39,8 @@ nav a{transition:.2s}nav a:hover,nav a[aria-current="page"]{color:#fff}
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:45px}
 .cards.three{grid-template-columns:repeat(3,1fr)}
 .card,.feature,.road>div{border:1px solid #222b37;background:linear-gradient(145deg,#0e131b,#0b0f15);padding:30px;border-radius:var(--radius);transition:.25s;position:relative;overflow:hidden}
-.card:before,.feature:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(184,255,77,.06),transparent 40%);opacity:0;transition:.25s}
+.card:before,.feature:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(184,255,77,.06),transparent 40%);opacity:0;transition:.25s;pointer-events:none}
+.card>*, .feature>*{position:relative;z-index:2}
 .card:hover,.feature:hover{transform:translateY(-5px);border-color:#3c4857;box-shadow:0 20px 50px rgba(0,0,0,.25)}.card:hover:before,.feature:hover:before{opacity:1}
 .card small{color:#697585}.card h3{font-size:26px;margin:35px 0 8px}.card p,.feature p,.road p{color:#9da9b8}
 .service-card{display:block}.service-card .tag{color:var(--accent2);font-size:11px;font-weight:800;letter-spacing:.14em}
