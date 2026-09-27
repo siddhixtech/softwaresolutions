@@ -17,4 +17,4 @@ A polished static website for SiddhiXTech, positioned as a software, AI and digi
 - `assets/style.css` — responsive visual system
 - `assets/script.js` — small progressive enhancement
 
-This is a static frontend. Connect the contact form to your preferred backend/email service before production.
+This is a static frontend with direct email inquiries routed to siddhixtechsol@gmail.com.
