@@ -25,51 +25,127 @@
 <main>
 <section class="hero">
 <div class="kicker"><i></i> PRIMARY FOCUS • INTELLIGENT HOME & ENERGY AI</div>
-<div class="eyebrow">AUTONOMOUS HYBRID MICROGRIDS & SMART HOMES</div>
+<div class="eyebrow">AUTONOMOUS HYBRID MICROGRIDS & SMART LIVING</div>
 <h1>The intelligent home that predicts, powers, and <span>never runs out.</span></h1>
 <p>We integrate Solar, Wind, Grid and Generator power with predictive AI. Connected to live weather radar and government grid outage forecasts, our smart home systems autonomously safeguard inverter storage before blackouts hit.</p>
 <div class="actions">
   <a class="btn" href="smart-home.html">Explore Intelligent Home</a>
-  <a class="btn secondary" href="services.html">Software Services</a>
+  <a class="btn secondary" href="#simulator">Try Energy Simulator</a>
   <a class="text-link" href="contact.html">Talk to us →</a>
 </div>
 </section>
 
+<!-- HERO VISUAL SHOWCASE -->
+<div class="hero-visual">
+  <div class="media-frame">
+    <img src="assets/smart-home-hero.jpg" alt="SiddhiXTech Intelligent Home at twilight with Solar, Wind Turbine and Smart Battery Storage" loading="lazy">
+    <div class="media-overlay">
+      <span class="pill green"><i></i> Solar: 6.4 kW Active</span>
+      <span class="pill cyan"><i></i> Wind Turbine: 11.2 kW Active</span>
+      <span class="pill amber"><i></i> Battery Storage: 96% Protected</span>
+      <span class="pill purple"><i></i> AI Weather Sync: Active</span>
+    </div>
+  </div>
+</div>
+
 <section class="stats">
 <div><b>01</b><span>Solar, Wind & Genset</span></div>
 <div><b>02</b><span>Weather & Outage AI</span></div>
-<div><b>03</b><span>Inverter & Storage Defense</span></div>
+<div><b>03</b><span>Inverter Storage Defense</span></div>
 <div><b>04</b><span>Full-Stack Software</span></div>
 </section>
 
-<!-- PRIMARY FOCUS SECTION -->
+<!-- INTERACTIVE ENERGY SIMULATOR -->
+<section class="section" id="simulator" style="padding-top:40px;padding-bottom:20px">
+  <div style="max-width:680px;margin-bottom:30px">
+    <div class="eyebrow">INTERACTIVE DEMO</div>
+    <h2>Test the AI Energy Decision Engine</h2>
+    <p class="lead" style="margin-bottom:0">Simulate how SiddhiXTech smart homes react in real-time to weather shifts, Doppler radar storm alerts, and government grid outages.</p>
+  </div>
+
+  <div class="sim-box">
+    <div class="sim-header">
+      <div>
+        <small style="color:var(--accent);font-weight:800;letter-spacing:.15em;font-size:11px">SELECT LIVE SCENARIO</small>
+        <h3 style="margin:5px 0 0;font-size:22px;color:#fff">Simulated Real-Time Environmental Conditions</h3>
+      </div>
+      <div class="sim-modes">
+        <button type="button" class="sim-btn active" onclick="setSimMode('normal', this)">☀️ Normal Sun</button>
+        <button type="button" class="sim-btn" onclick="setSimMode('storm', this)">⛈️ Storm Alert</button>
+        <button type="button" class="sim-btn" onclick="setSimMode('blackout', this)">⚡ Grid Blackout</button>
+        <button type="button" class="sim-btn" onclick="setSimMode('night', this)">🌙 Night & Wind</button>
+      </div>
+    </div>
+
+    <div class="sim-grid">
+      <div class="sim-card">
+        <small>SOLAR GENERATION</small>
+        <div class="sim-val" id="sim-solar-val" style="color:#ffb800">6.4 kW</div>
+        <div class="sim-bar-bg"><div class="sim-bar" id="sim-solar-bar" style="width:75%;background:#ffb800"></div></div>
+      </div>
+      <div class="sim-card">
+        <small>WIND GENERATION</small>
+        <div class="sim-val" id="sim-wind-val" style="color:#00e5ff">1.8 kW</div>
+        <div class="sim-bar-bg"><div class="sim-bar" id="sim-wind-bar" style="width:20%;background:#00e5ff"></div></div>
+      </div>
+      <div class="sim-card">
+        <small>INVERTER & BATTERY</small>
+        <div class="sim-val" id="sim-bat-val" style="color:#00e676">96% (Full)</div>
+        <div class="sim-bar-bg"><div class="sim-bar" id="sim-bat-bar" style="width:96%;background:#00e676"></div></div>
+      </div>
+      <div class="sim-card">
+        <small>GRID & GENERATOR</small>
+        <div class="sim-val" id="sim-grid-val" style="color:#aeb8c5">Grid: Exporting</div>
+        <div class="sim-bar-bg"><div class="sim-bar" id="sim-grid-bar" style="width:10%;background:#38485e"></div></div>
+      </div>
+    </div>
+
+    <div class="sim-alert">
+      <div>
+        <div class="sim-alert-text">
+          <span class="pill green" id="sim-alert-pill"><i></i> NORMAL SOLAR PRIORITY</span>
+          <span id="sim-alert-title" style="font-weight:700">Optimal Generation: 100% Clean Energy</span>
+        </div>
+        <div class="sim-alert-desc" id="sim-alert-desc">Solar and micro wind are supplying the entire home. Excess power is trickle-charging batteries and feeding into the grid.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIMARY FOCUS: VISUAL SHOWCASES -->
 <section class="grid-section">
 <div>
-  <div class="eyebrow">PRIMARY FOCUS</div>
-  <h2>Zero blackouts. Maximum savings. Autonomous energy control.</h2>
-  <p class="lead">How our AI-powered intelligent home orchestrates multiple power sources, anticipates outages, and saves your inverter storage for when you need it most.</p>
+  <div class="eyebrow">PRIMARY FOCUS · SMART HOME</div>
+  <h2>Engineered for total blackout immunity and maximum savings.</h2>
+  <p class="lead">How our AI orchestrates rooftop solar, vertical wind turbines, intelligent battery banks, and auto-start generators.</p>
 </div>
+
 <div class="cards">
-  <a href="smart-home.html" class="card service-card">
-    <span class="tag">HYBRID POWER</span>
-    <h3>Solar, Wind & Generator Integration</h3>
-    <p>Seamlessly combines solar panels, micro wind turbines, the utility grid, and auto-start petrol/diesel generators with zero interruption.</p>
-  </a>
-  <a href="smart-home.html" class="card service-card">
-    <span class="tag">PREDICTIVE AI</span>
-    <h3>Weather & Grid Cut Forecasting</h3>
-    <p>AI monitors live Doppler radar, storm alerts, and government load-shedding schedules to prepare your home hours before electricity cuts.</p>
-  </a>
-  <a href="smart-home.html" class="card service-card">
-    <span class="tag">STORAGE DEFENSE</span>
-    <h3>Smart Inverter & Battery Protection</h3>
-    <p>Automatically fast-charges storage before incoming storms and locks out high-draw appliances so your inverter is never caught empty.</p>
-  </a>
-  <a href="smart-home.html" class="card service-card">
-    <span class="tag">AUTOMATION</span>
-    <h3>Smart Appliance Orchestration</h3>
-    <p>Intelligently schedules water pumps, EV charging, and HVAC to run during peak solar generation, drastically cutting your electricity bills.</p>
-  </a>
+  <!-- Card 1 with Dashboard Image -->
+  <div class="card img-card">
+    <div class="img-card-media">
+      <img src="assets/energy-ai-dashboard.jpg" alt="SiddhiXTech Energy AI Telemetry Dashboard" loading="lazy">
+    </div>
+    <div class="img-card-content">
+      <span class="pill cyan" style="margin-bottom:12px"><i></i> PREDICTIVE AI</span>
+      <h3>Weather & Outage Radar Sync</h3>
+      <p>Cloud AI monitors live Doppler radar and government load-shedding schedules to top off inverter storage hours before a blackout.</p>
+      <a href="smart-home.html" style="color:var(--accent);font-weight:700;display:inline-block;margin-top:14px">Learn how it works →</a>
+    </div>
+  </div>
+
+  <!-- Card 2 with Microgrid Diagram Image -->
+  <div class="card img-card">
+    <div class="img-card-media">
+      <img src="assets/hybrid-microgrid-system.jpg" alt="SiddhiXTech Hybrid Microgrid Architecture" loading="lazy">
+    </div>
+    <div class="img-card-content">
+      <span class="pill green" style="margin-bottom:12px"><i></i> HYBRID HARDWARE</span>
+      <h3>Solar, Wind & Auto-Genset</h3>
+      <p>Seamlessly coordinates rooftop solar, micro wind turbines, inverter storage banks, and quiet emergency backup generators with zero flicker.</p>
+      <a href="smart-home.html" style="color:var(--accent);font-weight:700;display:inline-block;margin-top:14px">Explore hardware specs →</a>
+    </div>
+  </div>
 </div>
 </section>
 
@@ -88,7 +164,7 @@
 </div>
 </section>
 
-<!-- WHITE-LABEL PRODUCT SHOWCASE -->
+<!-- WHITE-LABEL COMMERCE SHOWCASE -->
 <section class="grid-section">
 <div><div class="eyebrow">A PRODUCT WE CAN BUILD</div><h2>Your own branded shop app — without building from scratch.</h2>
 <p class="lead">A white-label commerce platform where every shopkeeper gets a separate branded storefront, while you operate one scalable technology platform.</p></div>
@@ -122,6 +198,93 @@
 </div>
 <small>© 2026 SiddhiXTech. All rights reserved.</small>
 </footer>
+
+<script>
+const scenarios = {
+  normal: {
+    solar: '6.4 kW',
+    solarPct: '75%',
+    wind: '1.8 kW',
+    windPct: '20%',
+    battery: '96% (Full)',
+    batteryPct: '96%',
+    batteryColor: '#00e676',
+    grid: 'Grid: Exporting',
+    gridPct: '10%',
+    alertPill: 'NORMAL SOLAR PRIORITY',
+    alertPillClass: 'green',
+    alertText: 'Optimal Generation: 100% Clean Energy',
+    alertDesc: 'Solar and micro wind are supplying the entire home. Excess power is trickle-charging batteries and feeding into the grid.'
+  },
+  storm: {
+    solar: '0.6 kW',
+    solarPct: '8%',
+    wind: '9.4 kW',
+    windPct: '90%',
+    battery: '100% (Protected)',
+    batteryPct: '100%',
+    batteryColor: '#00e5ff',
+    grid: 'Grid: Pre-Charging Active',
+    gridPct: '80%',
+    alertPill: 'RADAR STORM ALERT DETECTED',
+    alertPillClass: 'amber',
+    alertText: 'Storage Defense Mode Engaged',
+    alertDesc: 'Doppler radar detected incoming storm front. System topped off batteries to 100% and shed non-essential AC/EV loads to guarantee 48hr backup.'
+  },
+  blackout: {
+    solar: '3.2 kW',
+    solarPct: '40%',
+    wind: '2.1 kW',
+    windPct: '25%',
+    battery: '91% (Supplying)',
+    batteryPct: '91%',
+    batteryColor: '#ffb800',
+    grid: 'Grid: 0V (Outage Active)',
+    gridPct: '0%',
+    alertPill: 'GOVT GRID BLACKOUT ACTIVE',
+    alertPillClass: 'red',
+    alertText: 'Seamless 8ms Inverter Transfer',
+    alertDesc: 'Grid power failed. Inverter instantly took over essential home loads without appliance reboot or flicker. Non-essential high-draw appliances locked out.'
+  },
+  night: {
+    solar: '0.0 kW',
+    solarPct: '0%',
+    wind: '6.8 kW',
+    windPct: '70%',
+    battery: '88% (Balanced)',
+    batteryPct: '88%',
+    batteryColor: '#e040fb',
+    grid: 'Grid: Standby Off-Peak',
+    gridPct: '15%',
+    alertPill: 'NIGHT MICROGRID OPERATION',
+    alertPillClass: 'purple',
+    alertText: 'Wind Generation + Battery Smoothing',
+    alertDesc: 'Night wind turbine provides steady baseload power. Battery discharges minimally to power lights, HVAC, and refrigeration.'
+  }
+};
+
+function setSimMode(mode, btn) {
+  document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const d = scenarios[mode];
+  if (!d) return;
+  document.getElementById('sim-solar-val').innerText = d.solar;
+  document.getElementById('sim-solar-bar').style.width = d.solarPct;
+  document.getElementById('sim-wind-val').innerText = d.wind;
+  document.getElementById('sim-wind-bar').style.width = d.windPct;
+  document.getElementById('sim-bat-val').innerText = d.battery;
+  document.getElementById('sim-bat-bar').style.width = d.batteryPct;
+  document.getElementById('sim-bat-bar').style.background = d.batteryColor;
+  document.getElementById('sim-grid-val').innerText = d.grid;
+  document.getElementById('sim-grid-bar').style.width = d.gridPct;
+  
+  const pill = document.getElementById('sim-alert-pill');
+  pill.className = 'pill ' + d.alertPillClass;
+  pill.innerHTML = '<i></i> ' + d.alertPill;
+  document.getElementById('sim-alert-title').innerText = d.alertText;
+  document.getElementById('sim-alert-desc').innerText = d.alertDesc;
+}
+</script>
 <script src="assets/script.js"></script>
 </body>
 </html>
