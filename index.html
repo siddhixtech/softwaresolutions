@@ -6,61 +6,19 @@
 <title>SiddhiXTech — Complete Product Ecosystem & Customer Insights</title>
 <meta name="description" content="Discover all SiddhiXTech products and solutions: Intelligent Home energy microgrids, AI automation, mobile apps, enterprise web platforms, and white-label commerce.">
 <link rel="stylesheet" href="assets/style.css">
-<style>
-.filter-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 40px}
-.filter-btn{padding:9px 18px;border-radius:10px;border:1px solid #283546;background:#0d131c;color:#a8b4c4;font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
-.filter-btn:hover{background:#151e2c;color:#fff;border-color:#48576c}
-.filter-btn.active{background:linear-gradient(135deg,rgba(184,255,77,.2),rgba(118,227,255,.15));color:#fff;border-color:var(--accent);box-shadow:0 0 15px rgba(184,255,77,.18)}
-.product-card{display:flex;flex-direction:column;justify-content:space-between;border:1px solid #243040;background:linear-gradient(150deg,#0e141d,#0a0d13);border-radius:18px;padding:32px;transition:.25s;position:relative;overflow:hidden}
-.product-card:hover{transform:translateY(-4px);border-color:#3d4e66;box-shadow:0 20px 50px rgba(0,0,0,.35)}
-.product-badge{align-self:flex-start;margin-bottom:14px}
-.insight-box{margin-top:20px;padding:14px 16px;background:rgba(255,255,255,.03);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-size:13px;color:#cbd5e1}
-.insight-box strong{color:#fff;display:block;margin-bottom:3px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-.customer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:35px}
-.customer-card{padding:28px;background:#0b0f15;border:1px solid #222c3a;border-radius:16px}
-.customer-card h3{margin:8px 0 10px;font-size:20px}
-.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:35px}
-.faq-item{padding:26px;background:#0b0f16;border:1px solid #202936;border-radius:16px}
-.faq-item h3{margin:0 0 10px;font-size:17px;color:#fff}
-.faq-item p{margin:0;font-size:14px;color:#94a3b8;line-height:1.6}
-@media(max-width:800px){
-  .customer-grid,.faq-grid{grid-template-columns:1fr}
-}
-/* Surveillance & Forensic Audio/Vision Dashboard */
-.surv-wrapper{margin-top:45px;background:#090d15;border:1px solid #1e293b;border-radius:20px;padding:32px;box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 35px rgba(56,189,248,.07)}
-.tablist-nav{display:flex;gap:10px;border-bottom:1px solid #1e293b;padding-bottom:16px;margin-bottom:24px;flex-wrap:wrap}
-.surv-tab{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;border:1px solid #1e293b;background:#0d1522;color:#94a3b8;font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
-.surv-tab:hover{background:#141f30;color:#fff;border-color:#334155}
-.surv-tab[aria-selected="true"]{background:#0f1e33;color:#38bdf8;border-color:#38bdf8;box-shadow:0 0 16px rgba(56,189,248,.25),inset 0 0 10px rgba(56,189,248,.08)}
-.badge-alert{background:#ef4444;color:#fff;font-size:10px;padding:2px 7px;border-radius:999px;font-weight:800;letter-spacing:.04em;display:inline-block;animation:pulseAlert 2s infinite ease-in-out}
-@keyframes pulseAlert{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.75;transform:scale(1.05)}}
-.tab-panel{display:none;animation:panelFade .25s ease}
-.tab-panel.active{display:block}
-@keyframes panelFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.cam-viewport{position:relative;width:100%;aspect-ratio:16/9;max-height:420px;background:radial-gradient(circle at center,#111a28 0%,#06090f 100%);border:1px solid #1e293b;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:16px;box-sizing:border-box}
-.cam-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
-.bbox{position:absolute;border:2px dashed;border-radius:6px;padding:4px 6px;font-size:11px;font-family:monospace;font-weight:700}
-.bbox-green{border-color:#22c55e;color:#22c55e;background:rgba(34,197,94,.08)}
-.bbox-red{border-color:#ef4444;color:#ef4444;background:rgba(239,68,68,.12);box-shadow:0 0 15px rgba(239,68,68,.35)}
-.bbox-amber{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,.08)}
-.audio-waveform{display:flex;align-items:center;gap:3px;height:36px;margin:12px 0}
-.audio-bar{flex:1;background:#38bdf8;border-radius:2px;min-height:4px;animation:soundBars 1.2s infinite ease-in-out}
-@keyframes soundBars{0%,100%{height:6px;opacity:.5}50%{height:32px;opacity:1;background:#a855f7}}
-.threat-tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;margin-left:6px}
-.threat-red{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.4)}
-.threat-amber{background:rgba(245,158,11,.2);color:#fcd34d;border:1px solid rgba(245,158,11,.4)}
-.threat-green{background:rgba(34,197,94,.2);color:#86efac;border:1px solid rgba(34,197,94,.4)}
-.product-card-img{width:100%;height:210px;border-radius:12px;overflow:hidden;margin-bottom:18px;border:1px solid #1e293b;background:#06090e;position:relative}
-.product-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
-.product-card:hover .product-card-img img{transform:scale(1.04)}
-</style>
 </head>
 <body>
 <header class="nav">
   <a class="logo" href="index.html">Siddhi<span>X</span>Tech</a>
-  <nav>
+  <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="site-nav">
     <a href="index.html" aria-current="page">Home</a>
     <a href="smart-home.html">Smart Home</a>
+    <a href="surveillance.html">AI Video Analysis</a>
     <a href="services.html">Software</a>
     <a href="about.html">About</a>
     <a href="technology.html">Technology</a>
@@ -135,7 +93,7 @@
             <strong>Customer Insight</strong>
             Engineered for correctional departments, detention centers, law enforcement, and high-security enterprises requiring automated 24/7 auditory and optical threat interception without manual fatigue.
           </div>
-          <a class="btn secondary" href="#surveillance-dashboard" style="margin-top:18px;display:inline-block">Explore Live Intelligence Suite ↓</a>
+          <a class="btn secondary" href="surveillance.html" style="margin-top:18px;display:inline-block">Explore Full Video & Audio AI Suite →</a>
         </div>
       </div>
 
@@ -660,6 +618,7 @@
   <div>
     <a href="index.html">Home</a>
     <a href="smart-home.html">Smart Home</a>
+    <a href="surveillance.html">AI Video Analysis</a>
     <a href="services.html">Software</a>
     <a href="about.html">About</a>
     <a href="privacy.html">Privacy</a>

@@ -19,12 +19,13 @@ Official website for SiddhiXTech — focused primarily on **Intelligent Home & C
 ## Structure
 - `index.html` (and `home.html`) — Master product ecosystem portal with category filtering, customer insights, and interactive surveillance intelligence demo
 - `smart-home.html` — Deep dive into the Intelligent Home architecture and real-time interactive energy simulator
+- `surveillance.html` — Dedicated AI video analysis, inmate call auditing, object detection, acoustic forensics, and 4-module command center dashboard
 - `services.html` — Software development, mobile IoT, GenAI, and video/audio intelligence offerings
 - `about.html` — Vision, mission, and foundational principles
 - `technology.html` — Energy AI, IoT Microgrid OS, computer vision, and tech stack
 - `infrastructure.html` — Decentralized microgrids and physical hardware systems
 - `contact.html` — Direct email inquiries to `support@siddhixtech.com`
-- `assets/style.css` — Modern responsive visual design system
-- `assets/script.js` — Progressive enhancement & navigation state
+- `assets/style.css` — Modern responsive visual design system, mobile drawer navigation, and standardized typography
+- `assets/script.js` — Mobile hamburger menu drawer toggle, outside click/escape handling, and active link state
 
 Direct inquiries: `support@siddhixtech.com`
