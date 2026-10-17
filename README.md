@@ -23,8 +23,8 @@ Official website for SiddhiXTech — focused primarily on **Intelligent Home & C
 - `infrastructure.html` — Decentralized microgrids and physical hardware
 - `academy.html` — Learning tracks (Smart Energy, AI, Cloud)
 - `roadmap.html` — Milestone-driven scaling plan
-- `contact.html` — Direct email inquiries to `siddhixtechsol@gmail.com`
+- `contact.html` — Direct email inquiries to `support@siddhixtech.com`
 - `assets/style.css` — Modern responsive visual design system
 - `assets/script.js` — Progressive enhancement & navigation state
 
-Direct inquiries: `siddhixtechsol@gmail.com`
+Direct inquiries: `support@siddhixtech.com`
