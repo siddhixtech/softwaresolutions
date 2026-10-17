@@ -43,6 +43,33 @@ a {
   text-decoration: none;
 }
 
+/* ANIMATED TECH BACKGROUND LAYER */
+.tech-bg-layer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('tech-bg.gif');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+  transform: translateZ(0);
+}
+
+.tech-bg-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 25%, transparent 20%, rgba(7, 9, 13, 0.75) 80%),
+    linear-gradient(to bottom, rgba(7, 9, 13, 0.15), rgba(7, 9, 13, 0.9));
+  pointer-events: none;
+}
+
 /* HEADER & NAVIGATION */
 .nav {
   height: 78px;
@@ -416,6 +443,8 @@ nav a[aria-current="page"] {
   max-width: var(--max);
   margin: auto;
   padding: 42px 28px 75px;
+  position: relative;
+  z-index: 1;
 }
 
 .two {
@@ -579,6 +608,8 @@ footer {
   display: grid;
   gap: 14px;
   font-size: var(--text-sm);
+  position: relative;
+  z-index: 1;
 }
 
 footer p {
