@@ -3,288 +3,703 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SiddhiXTech — Intelligent Home & Autonomous Energy AI</title>
-<meta name="description" content="SiddhiXTech primary focus: Intelligent Home solutions integrated with Solar, Wind, and Generator backup, powered by AI to predict weather and grid cuts, preserve battery storage, and provide uninterrupted electricity. Plus full-stack software development.">
+<title>SiddhiXTech — Complete Product Ecosystem & Customer Insights</title>
+<meta name="description" content="Discover all SiddhiXTech products and solutions: Intelligent Home energy microgrids, AI automation, mobile apps, enterprise web platforms, and white-label commerce.">
 <link rel="stylesheet" href="assets/style.css">
+<style>
+.filter-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 40px}
+.filter-btn{padding:9px 18px;border-radius:10px;border:1px solid #283546;background:#0d131c;color:#a8b4c4;font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
+.filter-btn:hover{background:#151e2c;color:#fff;border-color:#48576c}
+.filter-btn.active{background:linear-gradient(135deg,rgba(184,255,77,.2),rgba(118,227,255,.15));color:#fff;border-color:var(--accent);box-shadow:0 0 15px rgba(184,255,77,.18)}
+.product-card{display:flex;flex-direction:column;justify-content:space-between;border:1px solid #243040;background:linear-gradient(150deg,#0e141d,#0a0d13);border-radius:18px;padding:32px;transition:.25s;position:relative;overflow:hidden}
+.product-card:hover{transform:translateY(-4px);border-color:#3d4e66;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.product-badge{align-self:flex-start;margin-bottom:14px}
+.insight-box{margin-top:20px;padding:14px 16px;background:rgba(255,255,255,.03);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-size:13px;color:#cbd5e1}
+.insight-box strong{color:#fff;display:block;margin-bottom:3px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.customer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:35px}
+.customer-card{padding:28px;background:#0b0f15;border:1px solid #222c3a;border-radius:16px}
+.customer-card h3{margin:8px 0 10px;font-size:20px}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:35px}
+.faq-item{padding:26px;background:#0b0f16;border:1px solid #202936;border-radius:16px}
+.faq-item h3{margin:0 0 10px;font-size:17px;color:#fff}
+.faq-item p{margin:0;font-size:14px;color:#94a3b8;line-height:1.6}
+@media(max-width:800px){
+  .customer-grid,.faq-grid{grid-template-columns:1fr}
+}
+/* Surveillance & Forensic Audio/Vision Dashboard */
+.surv-wrapper{margin-top:45px;background:#090d15;border:1px solid #1e293b;border-radius:20px;padding:32px;box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 35px rgba(56,189,248,.07)}
+.tablist-nav{display:flex;gap:10px;border-bottom:1px solid #1e293b;padding-bottom:16px;margin-bottom:24px;flex-wrap:wrap}
+.surv-tab{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;border:1px solid #1e293b;background:#0d1522;color:#94a3b8;font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
+.surv-tab:hover{background:#141f30;color:#fff;border-color:#334155}
+.surv-tab[aria-selected="true"]{background:#0f1e33;color:#38bdf8;border-color:#38bdf8;box-shadow:0 0 16px rgba(56,189,248,.25),inset 0 0 10px rgba(56,189,248,.08)}
+.badge-alert{background:#ef4444;color:#fff;font-size:10px;padding:2px 7px;border-radius:999px;font-weight:800;letter-spacing:.04em;display:inline-block;animation:pulseAlert 2s infinite ease-in-out}
+@keyframes pulseAlert{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.75;transform:scale(1.05)}}
+.tab-panel{display:none;animation:panelFade .25s ease}
+.tab-panel.active{display:block}
+@keyframes panelFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cam-viewport{position:relative;width:100%;aspect-ratio:16/9;max-height:420px;background:radial-gradient(circle at center,#111a28 0%,#06090f 100%);border:1px solid #1e293b;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:16px;box-sizing:border-box}
+.cam-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.bbox{position:absolute;border:2px dashed;border-radius:6px;padding:4px 6px;font-size:11px;font-family:monospace;font-weight:700}
+.bbox-green{border-color:#22c55e;color:#22c55e;background:rgba(34,197,94,.08)}
+.bbox-red{border-color:#ef4444;color:#ef4444;background:rgba(239,68,68,.12);box-shadow:0 0 15px rgba(239,68,68,.35)}
+.bbox-amber{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,.08)}
+.audio-waveform{display:flex;align-items:center;gap:3px;height:36px;margin:12px 0}
+.audio-bar{flex:1;background:#38bdf8;border-radius:2px;min-height:4px;animation:soundBars 1.2s infinite ease-in-out}
+@keyframes soundBars{0%,100%{height:6px;opacity:.5}50%{height:32px;opacity:1;background:#a855f7}}
+.threat-tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;margin-left:6px}
+.threat-red{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.4)}
+.threat-amber{background:rgba(245,158,11,.2);color:#fcd34d;border:1px solid rgba(245,158,11,.4)}
+.threat-green{background:rgba(34,197,94,.2);color:#86efac;border:1px solid rgba(34,197,94,.4)}
+.product-card-img{width:100%;height:210px;border-radius:12px;overflow:hidden;margin-bottom:18px;border:1px solid #1e293b;background:#06090e;position:relative}
+.product-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.product-card:hover .product-card-img img{transform:scale(1.04)}
+</style>
 </head>
 <body>
 <header class="nav">
   <a class="logo" href="index.html">Siddhi<span>X</span>Tech</a>
   <nav>
-    <a href="home.html">Home</a>
+    <a href="index.html" aria-current="page">Home</a>
     <a href="smart-home.html">Smart Home</a>
     <a href="services.html">Software</a>
     <a href="about.html">About</a>
     <a href="technology.html">Technology</a>
     <a href="infrastructure.html">Infrastructure</a>
-    <a href="academy.html">Academy</a>
-    <a href="roadmap.html">Roadmap</a>
-    <a class="nav-btn" href="contact.html">Start a project</a>
+    <a class="nav-btn" href="contact.html">Contact Us</a>
   </nav>
 </header>
 
-<main>
-<section class="hero">
-<div class="kicker"><i></i> PRIMARY FOCUS • INTELLIGENT HOME & ENERGY AI</div>
-<div class="eyebrow">AUTONOMOUS HYBRID MICROGRIDS & SMART LIVING</div>
-<h1>The intelligent home that predicts, powers, and <span>never runs out.</span></h1>
-<p>We integrate Solar, Wind, Grid and Generator power with predictive AI. Connected to live weather radar and government grid outage forecasts, our smart home systems autonomously safeguard inverter storage before blackouts hit.</p>
-<div class="actions">
-  <a class="btn" href="smart-home.html">Explore Intelligent Home</a>
-  <a class="btn secondary" href="home.html">All Products Overview</a>
-  <a class="text-link" href="#simulator">Try Simulator →</a>
-</div>
-</section>
-
-<!-- HERO VISUAL SHOWCASE -->
-<div class="hero-visual">
-  <div class="media-frame">
-    <img src="assets/smart-home-hero.jpg" alt="SiddhiXTech Intelligent Home at twilight with Solar, Wind Turbine and Smart Battery Storage" loading="lazy">
-    <div class="media-overlay">
-      <span class="pill green"><i></i> Solar: 6.4 kW Active</span>
-      <span class="pill cyan"><i></i> Wind Turbine: 11.2 kW Active</span>
-      <span class="pill amber"><i></i> Battery Storage: 96% Protected</span>
-      <span class="pill purple"><i></i> AI Weather Sync: Active</span>
-    </div>
-  </div>
-</div>
-
-<section class="stats">
-<div><b>01</b><span>Solar, Wind & Genset</span></div>
-<div><b>02</b><span>Weather & Outage AI</span></div>
-<div><b>03</b><span>Inverter Storage Defense</span></div>
-<div><b>04</b><span>Full-Stack Software</span></div>
-</section>
-
-<!-- INTERACTIVE ENERGY SIMULATOR -->
-<section class="section" id="simulator" style="padding-top:40px;padding-bottom:20px">
-  <div style="max-width:680px;margin-bottom:30px">
-    <div class="eyebrow">INTERACTIVE DEMO</div>
-    <h2>Test the AI Energy Decision Engine</h2>
-    <p class="lead" style="margin-bottom:0">Simulate how SiddhiXTech smart homes react in real-time to weather shifts, Doppler radar storm alerts, and government grid outages.</p>
-  </div>
-
-  <div class="sim-box">
-    <div class="sim-header">
-      <div>
-        <small style="color:var(--accent);font-weight:800;letter-spacing:.15em;font-size:11px">SELECT LIVE SCENARIO</small>
-        <h3 style="margin:5px 0 0;font-size:22px;color:#fff">Simulated Real-Time Environmental Conditions</h3>
-      </div>
-      <div class="sim-modes">
-        <button type="button" class="sim-btn active" onclick="setSimMode('normal', this)">☀️ Normal Sun</button>
-        <button type="button" class="sim-btn" onclick="setSimMode('storm', this)">⛈️ Storm Alert</button>
-        <button type="button" class="sim-btn" onclick="setSimMode('blackout', this)">⚡ Grid Blackout</button>
-        <button type="button" class="sim-btn" onclick="setSimMode('night', this)">🌙 Night & Wind</button>
-      </div>
+<main class="page">
+  <!-- PRODUCTS SECTION -->
+  <section id="products" style="padding-top:10px;padding-bottom:70px">
+    <div style="max-width:760px">
+      <div class="eyebrow">ALL PRODUCTS & PLATFORM INSIGHTS</div>
+      <h1>Engineered for real-world impact and reliability.</h1>
+      <p class="lead" style="margin-bottom:20px">Filter our solutions by category to see technical capabilities and customer insights:</p>
     </div>
 
-    <div class="sim-grid">
-      <div class="sim-card">
-        <small>SOLAR GENERATION</small>
-        <div class="sim-val" id="sim-solar-val" style="color:#ffb800">6.4 kW</div>
-        <div class="sim-bar-bg"><div class="sim-bar" id="sim-solar-bar" style="width:75%;background:#ffb800"></div></div>
-      </div>
-      <div class="sim-card">
-        <small>WIND GENERATION</small>
-        <div class="sim-val" id="sim-wind-val" style="color:#00e5ff">1.8 kW</div>
-        <div class="sim-bar-bg"><div class="sim-bar" id="sim-wind-bar" style="width:20%;background:#00e5ff"></div></div>
-      </div>
-      <div class="sim-card">
-        <small>INVERTER & BATTERY</small>
-        <div class="sim-val" id="sim-bat-val" style="color:#00e676">96% (Full)</div>
-        <div class="sim-bar-bg"><div class="sim-bar" id="sim-bat-bar" style="width:96%;background:#00e676"></div></div>
-      </div>
-      <div class="sim-card">
-        <small>GRID & GENERATOR</small>
-        <div class="sim-val" id="sim-grid-val" style="color:#aeb8c5">Grid: Exporting</div>
-        <div class="sim-bar-bg"><div class="sim-bar" id="sim-grid-bar" style="width:10%;background:#38485e"></div></div>
-      </div>
+    <!-- Category Filter Tabs -->
+    <div class="filter-tabs">
+      <button type="button" class="filter-btn active" onclick="filterProducts('all', this)">All Products (7)</button>
+      <button type="button" class="filter-btn" onclick="filterProducts('energy', this)">⚡ Intelligent Energy</button>
+      <button type="button" class="filter-btn" onclick="filterProducts('surveillance', this)">🎥 Video, Call & Audio AI</button>
+      <button type="button" class="filter-btn" onclick="filterProducts('ai', this)">🤖 AI & Automation</button>
+      <button type="button" class="filter-btn" onclick="filterProducts('software', this)">💻 Software & Apps</button>
+      <button type="button" class="filter-btn" onclick="filterProducts('commerce', this)">🛍️ Retail & White-Label</button>
     </div>
 
-    <div class="sim-alert">
-      <div>
-        <div class="sim-alert-text">
-          <span class="pill green" id="sim-alert-pill"><i></i> NORMAL SOLAR PRIORITY</span>
-          <span id="sim-alert-title" style="font-weight:700">Optimal Generation: 100% Clean Energy</span>
+    <!-- Products Grid -->
+    <div class="cards" id="products-grid">
+      
+      <!-- Product 1: Intelligent Home Energy -->
+      <div class="product-card" data-cat="energy">
+        <div>
+          <div class="product-card-img">
+            <img src="assets/hybrid-microgrid-system.jpg" alt="SiddhiXTech Intelligent Home Microgrid" loading="lazy">
+          </div>
+          <span class="pill green product-badge"><i></i> CLEAN ENERGY & MICROGRIDS</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">Intelligent Home & AI Microgrid</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">An autonomous home energy system coordinating rooftop Solar PV, micro Wind turbines, Inverters, and automated Petrol/Diesel generators. Synchronizes with real-time Doppler weather radar and government outage schedules to preserve battery storage before blackouts occur.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>Zero blackout risk with 8ms instant power transfer</li>
+            <li>Weather radar anticipation & storage pre-charging</li>
+            <li>Automated load balancing to cut electricity bills by up to 70%</li>
+          </ul>
         </div>
-        <div class="sim-alert-desc" id="sim-alert-desc">Solar and micro wind are supplying the entire home. Excess power is trickle-charging batteries and feeding into the grid.</div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Designed for homeowners, estates, and remote properties seeking complete energy autonomy and zero blackout disruption.
+          </div>
+          <a class="btn secondary" href="smart-home.html" style="margin-top:18px;display:inline-block">View Full System Specs →</a>
+        </div>
+      </div>
+
+      <!-- Product 2: Video, Audio & Investigation Intelligence -->
+      <div class="product-card" data-cat="surveillance ai software">
+        <div>
+          <div class="product-card-img">
+            <img src="assets/surveillance-ai-command.jpg" alt="SiddhiXTech Vision & Surveillance AI Command Center" loading="lazy">
+          </div>
+          <span class="pill cyan product-badge"><i></i> COMPUTER VISION & ACOUSTIC FORENSICS</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">Intelligent Video, Call & Audio Investigation AI</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">Mission-critical computer vision, video call stream analysis, and acoustic forensic intelligence. Purpose-engineered for multi-camera facility surveillance, real-time object detection (contraband, weapons, mobile phones), and automated audio/video call auditing — such as inmate call monitoring in correctional facilities and jails.</p>
+          <ul class="list" style="margin-top:14px">
+            <li><strong>Camera Feed Analysis & Object Detection:</strong> Real-time YOLOv10 object detection, perimeter virtual tripwire alarms, weapon/contraband flags, and aggressive physical behavior detection.</li>
+            <li><strong>Inmate Call & Video Call Auditing:</strong> Automated speech-to-text diarization, acoustic vocal stress scoring, coded slang/narcotics keyword detection, and voice biometric identification.</li>
+            <li><strong>Forensic Investigation Engine:</strong> Natural language multi-camera query search, suspect trajectory reconstruction, and tamper-proof courtroom-ready audit trails.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Engineered for correctional departments, detention centers, law enforcement, and high-security enterprises requiring automated 24/7 auditory and optical threat interception without manual fatigue.
+          </div>
+          <a class="btn secondary" href="#surveillance-dashboard" style="margin-top:18px;display:inline-block">Explore Live Intelligence Suite ↓</a>
+        </div>
+      </div>
+
+      <!-- Product 3: AI & GenAI Systems -->
+      <div class="product-card" data-cat="ai software">
+        <div>
+          <div class="product-card-img">
+            <img src="assets/genai-agents-workstation.jpg" alt="SiddhiXTech GenAI & Autonomous Agent Workstation" loading="lazy">
+          </div>
+          <span class="pill purple product-badge"><i></i> ARTIFICIAL INTELLIGENCE</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">GenAI & Autonomous Agents</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">Enterprise AI solutions powered by Large Language Models, Retrieval-Augmented Generation (RAG), and multi-agent workflows. We turn proprietary business documentation and data into intelligent chatbots, copilot tools, and process automation.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>RAG vector search over internal company knowledge bases</li>
+            <li>Autonomous AI agents for repetitive back-office tasks</li>
+            <li>Secure private on-premise or cloud LLM deployments</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Built for enterprises and modern teams looking to eliminate manual data entry, accelerate research, and automate customer service.
+          </div>
+          <a class="btn secondary" href="services.html" style="margin-top:18px;display:inline-block">Explore AI Services →</a>
+        </div>
+      </div>
+
+      <!-- Product 4: Mobile & Android Apps -->
+      <div class="product-card" data-cat="software">
+        <div>
+          <div class="product-card-img">
+            <img src="assets/mobile-iot-controller.jpg" alt="SiddhiXTech Android Mobile App & IoT Controller" loading="lazy">
+          </div>
+          <span class="pill cyan product-badge"><i></i> MOBILE APPLICATIONS</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">Android & Mobile Applications</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">High-performance native Android (Kotlin) and cross-platform mobile apps. From IoT hardware controllers with real-time Bluetooth/Wi-Fi telemetry to customer-facing booking, delivery, and marketplace applications.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>IoT device pairing, Bluetooth LE, and hardware telemetry</li>
+            <li>Push notifications, Firebase backend, and secure auth</li>
+            <li>In-app subscriptions, UPI / card payments, and live tracking</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Ideal for startups launching consumer apps and IoT hardware companies requiring sleek, responsive mobile controllers.
+          </div>
+          <a class="btn secondary" href="services.html" style="margin-top:18px;display:inline-block">View Mobile Solutions →</a>
+        </div>
+      </div>
+
+      <!-- Product 5: Enterprise Web Platforms -->
+      <div class="product-card" data-cat="software">
+        <div>
+          <div class="product-card-img">
+            <img src="assets/enterprise-cloud-dashboard.jpg" alt="SiddhiXTech Enterprise Cloud SaaS Dashboard" loading="lazy">
+          </div>
+          <span class="pill amber product-badge"><i></i> WEB ARCHITECTURE</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">Enterprise Web & Cloud SaaS</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">Modern web applications, SaaS dashboards, and data-intensive portals. Designed with robust role-based access control, PostgreSQL databases, high-throughput APIs, and responsive glassmorphic UI systems.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>Real-time telemetry and IoT monitoring dashboards</li>
+            <li>Role-based access control (RBAC) and audit logging</li>
+            <li>Scalable cloud backends deployed on AWS / Google Cloud</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Essential for businesses replacing outdated spreadsheets and legacy systems with secure, real-time web portals.
+          </div>
+          <a class="btn secondary" href="services.html" style="margin-top:18px;display:inline-block">Explore Web Platforms →</a>
+        </div>
+      </div>
+
+      <!-- Product 6: White-Label Commerce -->
+      <div class="product-card" data-cat="commerce software">
+        <div>
+          <div class="product-card-img">
+            <img src="assets/white-label-commerce.jpg" alt="SiddhiXTech White-Label Digital Commerce Platform" loading="lazy">
+          </div>
+          <span class="pill green product-badge"><i></i> DIGITAL COMMERCE</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">White-Label Commerce Platform</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">A turnkey multi-tenant eCommerce engine. Allows platform owners to provision separate, fully-branded digital storefronts and mobile apps for individual shopkeepers while operating one centralized administration backend.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>Unique app identity, catalogue, and branding per shop</li>
+            <li>Centralized order fulfillment, payment splitting, and inventory</li>
+            <li>Integrated loyalty rewards, referrals, and commission tracking</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Perfect for regional retailer associations, franchises, and entrepreneurs creating multi-merchant marketplace ecosystems.
+          </div>
+          <a class="btn secondary" href="services.html" style="margin-top:18px;display:inline-block">Learn About White-Label →</a>
+        </div>
+      </div>
+
+      <!-- Product 7: Academy & Labs -->
+      <div class="product-card" data-cat="energy ai software">
+        <div>
+          <div class="product-card-img">
+            <img src="assets/academy-engineering-labs.jpg" alt="SiddhiXTech Academy & Hardware Engineering Labs" loading="lazy">
+          </div>
+          <span class="pill cyan product-badge"><i></i> EDUCATION & RESEARCH</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">SiddhiXTech Academy & Labs</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">A practical engineering academy bridging academic learning with real-world technology. Students and professionals work with actual IoT energy hardware, GPU compute infrastructure, and production software deployment pipelines.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>Smart Energy & Microgrid hardware engineering</li>
+            <li>Applied Machine Learning and Generative AI pipelines</li>
+            <li>Cloud DevOps, containerization, and microservices</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Aimed at aspiring engineers, university students, and technology organizations seeking hands-on talent development.
+          </div>
+          <a class="btn secondary" href="contact.html" style="margin-top:18px;display:inline-block">Inquire About Labs & Training →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AI SURVEILLANCE & INVESTIGATION DASHBOARD -->
+  <section id="surveillance-dashboard" style="padding-bottom:70px">
+    <div style="max-width:760px">
+      <div class="eyebrow">INTELLIGENT SURVEILLANCE & ACOUSTIC PLATFORM</div>
+      <h2>AI Video Processing, Inmate Call Auditing & Investigation</h2>
+      <p class="lead" style="margin-bottom:10px">Explore our interactive surveillance intelligence dashboard designed for high-security facilities, correctional communication auditing, real-time object detection, and forensic investigation:</p>
+    </div>
+
+    <div class="surv-wrapper">
+      <!-- Tabs Navigation (Accessible with ARIA roles) -->
+      <div class="tablist-nav" role="tablist" aria-label="Surveillance Dashboard Modules">
+        <button type="button" class="surv-tab" id="tab-btn-live" role="tab" aria-selected="true" aria-controls="panel-live" onclick="switchSurveillanceTab('panel-live', this)">
+          <span>👁️</span> Live Feed Intelligence
+        </button>
+        <button type="button" class="surv-tab" id="tab-btn-alerts" role="tab" aria-selected="false" aria-controls="panel-alerts" onclick="switchSurveillanceTab('panel-alerts', this)">
+          <span>⚡</span> Facility Anomaly Alerts <span class="badge-alert">3 Active</span>
+        </button>
+        <button type="button" class="surv-tab" id="tab-btn-audio" role="tab" aria-selected="false" aria-controls="panel-audio" onclick="switchSurveillanceTab('panel-audio', this)">
+          <span>🎙️</span> Inmate Call & Audio Insights
+        </button>
+        <button type="button" class="surv-tab" id="tab-btn-archive" role="tab" aria-selected="false" aria-controls="panel-archive" onclick="switchSurveillanceTab('panel-archive', this)">
+          <span>🔍</span> Forensic Investigation & Replay
+        </button>
+      </div>
+
+      <!-- Tab Panel 1: Live Feed Intelligence -->
+      <div id="panel-live" class="tab-panel active" role="tabpanel" aria-labelledby="tab-btn-live">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px">
+          <div>
+            <span class="pill green" style="font-size:11px"><i></i> SYSTEM LIVE · 12 STREAMS ACTIVE</span>
+            <span style="font-size:13px;color:#94a3b8;margin-left:8px">Feed: <b>CAM-04 (Yard Perimeter / West Wing)</b></span>
+          </div>
+          <div style="font-size:12px;color:#64748b;font-family:monospace">
+            FPS: <span style="color:#38bdf8">60.2</span> | LATENCY: <span style="color:#22c55e">14ms</span> | MODEL: YOLOv10-SECURE
+          </div>
+        </div>
+
+        <!-- Simulated Camera Viewport -->
+        <div class="cam-viewport">
+          <img src="assets/surveillance-ai-command.jpg" alt="Live Feed Preview" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.3;filter:contrast(1.2) brightness(0.85);pointer-events:none">
+          <div class="cam-grid-overlay"></div>
+          
+          <!-- Top HUD -->
+          <div style="position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center">
+            <span style="background:rgba(0,0,0,0.7);padding:4px 8px;border-radius:4px;font-family:monospace;font-size:12px;color:#ef4444;font-weight:700">
+              ● REC 2026-10-17 12:35:19 [CAM-04]
+            </span>
+            <span style="background:rgba(0,0,0,0.7);padding:4px 8px;border-radius:4px;font-family:monospace;font-size:12px;color:#38bdf8">
+              EDGE INFERENCE: REAL-TIME (4K RTSP)
+            </span>
+          </div>
+
+          <!-- Bounding Boxes HUD -->
+          <div class="bbox bbox-green" style="top:26%;left:20%;width:130px;height:180px">
+            <div>SUBJECT #8412 [INMATE]</div>
+            <div style="font-size:9px;opacity:.8">ID Conf: 99.1%</div>
+          </div>
+
+          <div class="bbox bbox-red" style="top:40%;left:36%;width:95px;height:70px">
+            <div>🚨 CONTRABAND: PHONE</div>
+            <div style="font-size:9px;opacity:.8">Obj Conf: 94.7% [ALERT]</div>
+          </div>
+
+          <div class="bbox bbox-amber" style="bottom:14%;right:12%;width:180px;height:45px">
+            <div>PERIMETER TRIPWIRE 02</div>
+            <div style="font-size:9px;opacity:.8">Proximity warning: 0.6m</div>
+          </div>
+
+          <!-- Bottom HUD -->
+          <div style="position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.75);padding:8px 12px;border-radius:8px;font-size:12px;color:#cbd5e1">
+            <div><b>Active Objects Tracked:</b> 5 Persons · 1 Contraband Anomaly · 0 Perimeter Breaches</div>
+            <div style="display:flex;gap:12px">
+              <span>Sensor: Optical / IR Thermal</span>
+              <span>Tamper Guard: Active</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px">
+          <div style="background:#0c121d;border:1px solid #1e293b;border-radius:10px;padding:12px">
+            <small style="color:#64748b;display:block">CAMERA FEEDS</small>
+            <b style="font-size:18px;color:#fff">24 / 24 Online</b>
+          </div>
+          <div style="background:#0c121d;border:1px solid #1e293b;border-radius:10px;padding:12px">
+            <small style="color:#64748b;display:block">OBJECT DETECTION ACCURACY</small>
+            <b style="font-size:18px;color:#22c55e">98.4% mAP</b>
+          </div>
+          <div style="background:#0c121d;border:1px solid #1e293b;border-radius:10px;padding:12px">
+            <small style="color:#64748b;display:block">FACIAL RE-IDENTIFICATION</small>
+            <b style="font-size:18px;color:#38bdf8">Instant Cross-Camera</b>
+          </div>
+          <div style="background:#0c121d;border:1px solid #1e293b;border-radius:10px;padding:12px">
+            <small style="color:#64748b;display:block">FALSE POSITIVE FILTER</small>
+            <b style="font-size:18px;color:#a855f7">Adaptive Neural Filter</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Panel 2: Facility Anomaly Alerts -->
+      <div id="panel-alerts" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-alerts">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+          <h3 style="margin:0;font-size:18px">Active Security Alerts (3 Unresolved)</h3>
+          <span style="font-size:12px;color:#94a3b8">Auto-prioritized by AI Threat Score</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <!-- Alert 1 -->
+          <div style="border-left:4px solid #ef4444;background:#0d1420;border:1px solid #233144;border-left-width:4px;border-left-color:#ef4444;border-radius:10px;padding:16px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+              <div>
+                <span class="threat-tag threat-red" style="margin-left:0;margin-bottom:6px">CRITICAL THREAT</span>
+                <b style="display:block;font-size:16px;color:#fff">Prohibited Cell Phone & Handheld Device Detected</b>
+                <p style="margin:4px 0 0;font-size:13px;color:#94a3b8">Location: <b>Cell Block B (Tier 2, Cell 214)</b> · Camera: <b>CAM-14</b> · Timestamp: <b>2 mins ago</b></p>
+                <p style="margin:6px 0 0;font-size:13px;color:#cbd5e1">Computer vision detected reflection and contour of a smartphone concealed during laundry basket transfer.</p>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:6px">
+                <button type="button" class="btn secondary" style="padding:6px 12px;font-size:12px" onclick="alert('Viewing high-res snapshot and 10s video replay for CAM-14')">Review Clip</button>
+                <button type="button" class="btn" style="padding:6px 12px;font-size:12px" onclick="alert('Dispatch notification sent to Block B response team.')">Dispatch Response</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alert 2 -->
+          <div style="border-left:4px solid #f59e0b;background:#0d1420;border:1px solid #233144;border-left-width:4px;border-left-color:#f59e0b;border-radius:10px;padding:16px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+              <div>
+                <span class="threat-tag threat-amber" style="margin-left:0;margin-bottom:6px">ACOUSTIC ANOMALY</span>
+                <b style="display:block;font-size:16px;color:#fff">Aggression & Altercation Signature in Common Yard</b>
+                <p style="margin:4px 0 0;font-size:13px;color:#94a3b8">Sensor: <b>Acoustic Array MIC-03</b> · Timestamp: <b>7 mins ago</b> · Decibel Surge: <b>+26 dB</b></p>
+                <p style="margin:6px 0 0;font-size:13px;color:#cbd5e1">Audio neural network detected elevated vocal stress frequencies, shouting phonemes, and rapid physical displacement sounds.</p>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:6px">
+                <button type="button" class="btn secondary" style="padding:6px 12px;font-size:12px" onclick="alert('Playing 15s acoustic audio snippet with vocal isolation')">Listen Audio</button>
+                <button type="button" class="btn secondary" style="padding:6px 12px;font-size:12px" onclick="alert('Switching main monitor to Yard Camera CAM-02')">Switch to Camera</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alert 3 -->
+          <div style="border-left:4px solid #38bdf8;background:#0d1420;border:1px solid #233144;border-left-width:4px;border-left-color:#38bdf8;border-radius:10px;padding:16px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+              <div>
+                <span class="threat-tag threat-amber" style="margin-left:0;margin-bottom:6px">PERIMETER ALERT</span>
+                <b style="display:block;font-size:16px;color:#fff">Virtual Tripwire Proximity Warning (North Outer Wall)</b>
+                <p style="margin:4px 0 0;font-size:13px;color:#94a3b8">Location: <b>Perimeter Line 01 (Outer East Fence)</b> · Camera: <b>CAM-08 Thermal</b> · Timestamp: <b>18 mins ago</b></p>
+                <p style="margin:6px 0 0;font-size:13px;color:#cbd5e1">Subject lingered within 1 meter of sterile buffer boundary for >45 seconds during shift change.</p>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:6px">
+                <button type="button" class="btn secondary" style="padding:6px 12px;font-size:12px" onclick="alert('Displaying thermal trajectory breadcrumbs')">View Trajectory</button>
+                <button type="button" class="btn secondary" style="padding:6px 12px;font-size:12px" onclick="alert('Alert marked as verified maintenance activity')">Acknowledge</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Panel 3: Inmate Call & Audio Insights -->
+      <div id="panel-audio" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-audio">
+        <div style="border:1px solid #233348;background:#0b111a;border-radius:14px;padding:22px">
+          
+          <!-- Header info -->
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;border-bottom:1px solid #1c2738;padding-bottom:16px">
+            <div>
+              <span class="pill red" style="font-size:11px"><i></i> CORRECTIONAL JAIL INMATE CALL AUDITING</span>
+              <h3 style="font-size:19px;margin:8px 0 4px">Active Monitored Call: Station #09 (Block C)</h3>
+              <p style="margin:0;font-size:13px;color:#94a3b8">
+                Inmate: <b>Marcus Vance (#4802-D)</b> · Outbound: <b>+1 (206) 555-0194</b> · Call Duration: <b>04:18 / 15:00</b>
+              </p>
+            </div>
+            <div style="text-align:right">
+              <span style="display:inline-block;font-size:12px;color:#64748b">OVERALL THREAT SCORE</span>
+              <div style="font-size:24px;font-weight:800;color:#ef4444">87 / 100 <span style="font-size:13px;color:#f87171">[HIGH RISK]</span></div>
+            </div>
+          </div>
+
+          <!-- Gauges Bar -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0">
+            <div style="background:#0e1622;border:1px solid #1f2c3e;border-radius:10px;padding:12px">
+              <small style="color:#64748b">VOICE BIOMETRICS</small>
+              <div style="font-size:15px;font-weight:700;color:#22c55e">Confirmed Inmate (99.8%)</div>
+            </div>
+            <div style="background:#0e1622;border:1px solid #1f2c3e;border-radius:10px;padding:12px">
+              <small style="color:#64748b">VOCAL STRESS FREQUENCY</small>
+              <div style="font-size:15px;font-weight:700;color:#ef4444">84% (Extreme Spike)</div>
+            </div>
+            <div style="background:#0e1622;border:1px solid #1f2c3e;border-radius:10px;padding:12px">
+              <small style="color:#64748b">CODED SLANG FLAGS</small>
+              <div style="font-size:15px;font-weight:700;color:#f59e0b">3 Coded Phrases Detected</div>
+            </div>
+            <div style="background:#0e1622;border:1px solid #1f2c3e;border-radius:10px;padding:12px">
+              <small style="color:#64748b">THIRD-PARTY CALL BRIDGING</small>
+              <div style="font-size:15px;font-weight:700;color:#38bdf8">No 3-Way Bridge Detected</div>
+            </div>
+          </div>
+
+          <!-- Live Audio Waveform Simulation -->
+          <div style="margin:16px 0">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#94a3b8;margin-bottom:4px">
+              <span>LIVE AUDIO STREAM DECODER</span>
+              <span style="color:#38bdf8;font-family:monospace">48kHz / 24-bit PCM • Real-time Diarization</span>
+            </div>
+            <div class="audio-waveform">
+              <div class="audio-bar" style="animation-delay:0.1s"></div>
+              <div class="audio-bar" style="animation-delay:0.3s"></div>
+              <div class="audio-bar" style="animation-delay:0.5s"></div>
+              <div class="audio-bar" style="animation-delay:0.2s"></div>
+              <div class="audio-bar" style="animation-delay:0.4s"></div>
+              <div class="audio-bar" style="animation-delay:0.7s"></div>
+              <div class="audio-bar" style="animation-delay:0.3s"></div>
+              <div class="audio-bar" style="animation-delay:0.6s"></div>
+              <div class="audio-bar" style="animation-delay:0.2s"></div>
+              <div class="audio-bar" style="animation-delay:0.8s"></div>
+              <div class="audio-bar" style="animation-delay:0.4s"></div>
+              <div class="audio-bar" style="animation-delay:0.5s"></div>
+              <div class="audio-bar" style="animation-delay:0.1s"></div>
+              <div class="audio-bar" style="animation-delay:0.9s"></div>
+              <div class="audio-bar" style="animation-delay:0.3s"></div>
+              <div class="audio-bar" style="animation-delay:0.6s"></div>
+            </div>
+          </div>
+
+          <!-- Live Diarized Transcript -->
+          <div style="background:#070a10;border:1px solid #1a2332;border-radius:10px;padding:16px;max-height:220px;overflow-y:auto;font-family:inherit;font-size:13px;line-height:1.7">
+            <div style="color:#64748b;font-size:11px;margin-bottom:8px;font-family:monospace">--- LIVE SPEECH-TO-TEXT DIARIZATION STREAM ---</div>
+            
+            <p style="margin:4px 0">
+              <span style="color:#38bdf8;font-weight:700">[03:12] Inmate #4802-D:</span>
+              "Did you talk to the cousin about the green drop on 4th?"
+              <span class="threat-tag threat-red">⚠️ NARCOTICS SLANG: "green drop"</span>
+            </p>
+            <p style="margin:4px 0">
+              <span style="color:#a855f7;font-weight:700">[03:16] External Contact:</span>
+              "Yeah, he said he's linking up with Donnie by the loading bay before visiting hour."
+              <span class="threat-tag threat-amber">⚠️ LOCATION IDENTIFIER: "loading bay"</span>
+            </p>
+            <p style="margin:4px 0">
+              <span style="color:#38bdf8;font-weight:700">[03:22] Inmate #4802-D:</span>
+              "Make sure it's taped underneath the third blue tray during Friday lunch count."
+              <span class="threat-tag threat-red">🚨 CONTRABAND TRANSFER PROTOCOL FLAGGED</span>
+            </p>
+          </div>
+
+          <!-- Control Actions -->
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <button type="button" class="btn" style="padding:9px 16px;font-size:13px" onclick="alert('Priority alert and timestamped transcript dispatched to Jail Intelligence Unit.')">Flag to Detention Investigator</button>
+            <button type="button" class="btn secondary" style="padding:9px 16px;font-size:13px" onclick="alert('Patched live supervisory audio monitoring.')">Live Audio Intercept</button>
+            <button type="button" class="btn secondary" style="padding:9px 16px;font-size:13px" onclick="alert('Generating cryptographically signed evidentiary audio bundle with SHA-256 hash.')">Export Evidence Package</button>
+            <button type="button" class="btn secondary" style="padding:9px 16px;font-size:13px;color:#ef4444;border-color:rgba(239,68,68,.3)" onclick="confirm('Terminate active inmate call session #INM-CALL-98214 immediately?')">Emergency Terminate Call</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Panel 4: Forensic Investigation & Replay -->
+      <div id="panel-archive" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-archive">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+          <div>
+            <h3 style="margin:0;font-size:18px">Forensic Investigation & Semantic Cross-Feed Search</h3>
+            <p style="margin:4px 0 0;font-size:13px;color:#94a3b8">Search hundreds of hours of recorded camera feeds and calls using plain language queries.</p>
+          </div>
+          <span class="pill cyan" style="font-size:11px"><i></i> SHA-256 CHAIN OF CUSTODY VERIFIED</span>
+        </div>
+
+        <!-- Natural Language Query Search Bar -->
+        <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+          <input type="text" value="Find all individuals in orange uniform carrying a package near Kitchen Corridor between 13:00 - 15:00" style="flex:1;min-width:280px;background:#0e1522;border:1px solid #233144;border-radius:10px;padding:12px 16px;color:#fff;font:inherit;font-size:13px" readonly>
+          <button type="button" class="btn" style="padding:12px 20px;font-size:13px" onclick="alert('Searched 128 hours of archived video streams across 24 cameras in 0.38 seconds.')">Run Semantic Search</button>
+        </div>
+
+        <!-- Search Results Grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+          <div style="background:#0c121c;border:1px solid #202b3b;border-radius:12px;padding:16px">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#94a3b8;margin-bottom:8px">
+              <span style="color:#22c55e;font-weight:700">MATCH 01 (96.4% CONFIDENCE)</span>
+              <span>13:42:18 EST</span>
+            </div>
+            <div style="font-weight:700;font-size:15px;color:#fff;margin-bottom:4px">CAM-08 Kitchen Service Entrance</div>
+            <p style="font-size:13px;color:#94a3b8;margin:0 0 10px">Inmate Marcus Vance (#4802-D) observed passing unidentified white package to laundry cart attendant.</p>
+            <div style="display:flex;gap:8px">
+              <button type="button" class="btn secondary" style="padding:6px 12px;font-size:12px" onclick="alert('Loading synchronized 4-camera angle replay for 13:42:18')">Play Sync Replay</button>
+              <button type="button" class="btn secondary" style="padding:6px 12px;font-size:12px" onclick="alert('Bookmark added to Investigative Dossier #882')">Add to Case</button>
+            </div>
+          </div>
+
+          <div style="background:#0c121c;border:1px solid #202b3b;border-radius:12px;padding:16px">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#94a3b8;margin-bottom:8px">
+              <span style="color:#22c55e;font-weight:700">MATCH 02 (94.1% CONFIDENCE)</span>
+              <span>13:48:02 EST</span>
+            </div>
+            <div style="font-weight:700;font-size:15px;color:#fff;margin-bottom:4px">CAM-11 Cell Corridor 3 South</div>
+            <p style="font-size:13px;color:#94a3b8;margin:0 0 10px">Attendant transferred cart into Cell 214. Cross-referenced with active cell phone detection alert.</p>
+            <div style="display:flex;gap:8px">
+              <button type="button" class="btn secondary" style="padding:6px 12px;font-size:12px" onclick="alert('Loading synchronized 4-camera angle replay for 13:48:02')">Play Sync Replay</button>
+              <button type="button" class="btn secondary" style="padding:6px 12px;font-size:12px" onclick="alert('Bookmark added to Investigative Dossier #882')">Add to Case</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;padding:12px 16px;background:rgba(56,189,248,.04);border:1px solid rgba(56,189,248,.15);border-radius:10px;font-size:12px;color:#94a3b8;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div><b>Evidence Security:</b> FIPS 140-2 compliant hashing · CJIS & FedRAMP audited tamper-proof evidence logs.</div>
+          <a class="text-link" href="contact.html">Request Forensic Demo →</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PRIMARY FOCUS: VISUAL SHOWCASES -->
-<section class="grid-section">
-<div>
-  <div class="eyebrow">PRIMARY FOCUS · SMART HOME</div>
-  <h2>Engineered for total blackout immunity and maximum savings.</h2>
-  <p class="lead">How our AI orchestrates rooftop solar, vertical wind turbines, intelligent battery banks, and auto-start generators.</p>
-</div>
+  <!-- WHO WE BUILD FOR -->
+  <section class="section" style="padding-left:0;padding-right:0;padding-top:20px;padding-bottom:60px">
+    <div class="eyebrow">CUSTOMER PROFILES</div>
+    <h2>Tailored value for every customer segment.</h2>
+    <p class="lead" style="margin-bottom:0">How our technology delivers tangible return on investment across different customer types:</p>
 
-<div class="cards">
-  <!-- Card 1 with Dashboard Image -->
-  <div class="card img-card">
-    <div class="img-card-media">
-      <img src="assets/energy-ai-dashboard.jpg" alt="SiddhiXTech Energy AI Telemetry Dashboard" loading="lazy">
+    <div class="customer-grid">
+      <div class="customer-card">
+        <span class="pill green"><i></i> FOR HOMEOWNERS & ESTATES</span>
+        <h3>Zero Blackouts & Power Security</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.6">Enjoy complete independence from grid failures. Our AI monitors storm fronts and preserves battery reserves so your lights, Wi-Fi, air conditioning, and medical equipment stay powered 24/7, while cutting grid power bills by up to 70%.</p>
+      </div>
+
+      <div class="customer-card">
+        <span class="pill red"><i></i> FOR CORRECTIONAL & HIGH-SECURITY FACILITIES</span>
+        <h3>Inmate Call Auditing & Facility Vision</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.6">Automate 100% of inmate phone and video call monitoring. Our acoustic AI intercepts coded slang, narcotics negotiations, and vocal distress spikes in real time, while multi-camera vision detects weapons, contraband cell phones, and perimeter breaches 24/7 without guard fatigue.</p>
+      </div>
+
+      <div class="customer-card">
+        <span class="pill cyan"><i></i> FOR STARTUPS & FOUNDERS</span>
+        <h3>Rapid Concept-to-Production Velocity</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.6">Turn your idea into a production-grade digital business. From architectural design to native mobile apps and scalable cloud backends, we build clean, maintainable software ready for venture scale.</p>
+      </div>
+
+      <div class="customer-card">
+        <span class="pill amber"><i></i> FOR RETAIL & FRANCHISES</span>
+        <h3>Turnkey Branded Apps & Automation</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.6">Empower every store in your network with its own custom branded mobile ordering app without building from scratch. Manage orders, inventory, and payments from one centralized control plane.</p>
+      </div>
+
+      <div class="customer-card">
+        <span class="pill purple"><i></i> FOR ENTERPRISES</span>
+        <h3>Secure AI & Resilient Infrastructure</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.6">Integrate private Generative AI agents, internal knowledge search, and custom IoT telemetry dashboards into your existing workflows with enterprise-grade security and compliance.</p>
+      </div>
     </div>
-    <div class="img-card-content">
-      <span class="pill cyan" style="margin-bottom:12px"><i></i> PREDICTIVE AI</span>
-      <h3>Weather & Outage Radar Sync</h3>
-      <p>Cloud AI monitors live Doppler radar and government load-shedding schedules to top off inverter storage hours before a blackout.</p>
-      <a href="smart-home.html" style="color:var(--accent);font-weight:700;display:inline-block;margin-top:14px">Learn how it works →</a>
+  </section>
+
+  <!-- FREQUENTLY ASKED QUESTIONS -->
+  <section class="section" style="padding-left:0;padding-right:0;padding-bottom:70px">
+    <div class="eyebrow">CUSTOMER FAQ</div>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>How does the Intelligent Home predict power cuts?</h3>
+        <p>Our IoT edge controller connects to the internet to ingest real-time Doppler meteorological radar feeds, storm tracks, and municipal load-shedding schedules. When severe weather or a grid cut is imminent, it engages Storage Defense Mode to pre-charge batteries to 100%.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can SiddhiXTech build both hardware and software?</h3>
+        <p>Yes. We have deep full-stack capabilities ranging from IoT firmware, inverter communication protocols, and energy sensors, up to mobile apps (Kotlin/Android), cloud APIs, and web dashboards.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can existing solar or inverters be upgraded?</h3>
+        <p>In many cases, yes. Our smart controller can interface with existing hybrid inverters and battery banks via RS485/Modbus or auxiliary relays to add predictive AI automation without replacing your existing panels.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How does SiddhiXTech analyze inmate phone and video calls for jails?</h3>
+        <p>Our acoustic AI processes high-density correctional audio streams through real-time speaker diarization, voice biometric identification, and neural speech-to-text. It flags banned colloquialisms, gang codes, narcotics slang, and elevated vocal stress levels, immediately sending prioritized alerts and timestamped transcripts to investigative staff instead of requiring manual listening to thousands of call hours.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What can the computer vision system detect on live camera feeds?</h3>
+        <p>Our edge and cloud vision pipelines perform multi-object detection and tracking across existing RTSP/ONVIF camera networks. It identifies prohibited contraband (such as mobile devices and weapons), tracks unauthorized movement across virtual perimeter tripwires, flags aggressive physical altercations, and enables cross-camera suspect re-identification during investigations.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I start a project with SiddhiXTech?</h3>
+        <p>Simply reach out via our contact page or email us directly at support@siddhixtech.com. We schedule an engineering consultation to understand your requirements, evaluate site or software specs, and provide a clear timeline.</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Card 2 with Microgrid Diagram Image -->
-  <div class="card img-card">
-    <div class="img-card-media">
-      <img src="assets/hybrid-microgrid-system.jpg" alt="SiddhiXTech Hybrid Microgrid Architecture" loading="lazy">
+  <!-- CALL TO ACTION BANNER -->
+  <section class="banner" style="margin-left:0;margin-right:0">
+    <div>
+      <div class="eyebrow">READY TO BUILD?</div>
+      <h2>Let's turn your vision into intelligent technology.</h2>
+      <p style="color:#9da9b8;margin:10px 0 0">Whether you need an autonomous home microgrid or custom software development, our engineering team is ready.</p>
     </div>
-    <div class="img-card-content">
-      <span class="pill green" style="margin-bottom:12px"><i></i> HYBRID HARDWARE</span>
-      <h3>Solar, Wind & Auto-Genset</h3>
-      <p>Seamlessly coordinates rooftop solar, micro wind turbines, inverter storage banks, and quiet emergency backup generators with zero flicker.</p>
-      <a href="smart-home.html" style="color:var(--accent);font-weight:700;display:inline-block;margin-top:14px">Explore hardware specs →</a>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- RETAINED SOFTWARE SERVICES SECTION -->
-<section class="grid-section">
-<div>
-  <div class="eyebrow">SOFTWARE & DIGITAL SOLUTIONS</div>
-  <h2>Full-cycle software and digital product engineering.</h2>
-  <p class="lead">In addition to smart energy systems, we build production-grade mobile apps, web applications, AI tools, and customized software.</p>
-</div>
-<div class="cards">
-  <a href="services.html" class="card service-card"><span class="tag">MOBILE</span><h3>Android & Mobile Apps</h3><p>Kotlin/Android apps, IoT controller apps, delivery apps, booking platforms and white-label mobile products.</p></a>
-  <a href="services.html" class="card service-card"><span class="tag">WEB</span><h3>Web Applications</h3><p>Modern business portals, IoT telemetry dashboards, SaaS products, admin systems and customer platforms.</p></a>
-  <a href="services.html" class="card service-card"><span class="tag">AI</span><h3>AI & Intelligent Systems</h3><p>GenAI, AI search, RAG, agents, document intelligence, automation and predictive algorithms.</p></a>
-  <a href="services.html" class="card service-card"><span class="tag">CUSTOM</span><h3>Customized Software</h3><p>We turn unique business workflows into secure, scalable software tailored to how your organization works.</p></a>
-</div>
-</section>
-
-<!-- WHITE-LABEL COMMERCE SHOWCASE -->
-<section class="grid-section">
-<div><div class="eyebrow">A PRODUCT WE CAN BUILD</div><h2>Your own branded shop app — without building from scratch.</h2>
-<p class="lead">A white-label commerce platform where every shopkeeper gets a separate branded storefront, while you operate one scalable technology platform.</p></div>
-<div class="cards three">
-<div class="card"><small>01</small><h3>Own branded app</h3><p>Logo, colors, products, offers and customer experience customized for each shop.</p></div>
-<div class="card"><small>02</small><h3>One central platform</h3><p>Multi-tenant backend, order management, payments, inventory and analytics.</p></div>
-<div class="card"><small>03</small><h3>Seller & rewards</h3><p>Referral, loyalty and commission capabilities can be added around real product sales.</p></div>
-</div>
-</section>
-
-<section class="banner">
-<div>
-  <div class="eyebrow">LET'S BUILD</div>
-  <h2>Ready to build an intelligent home or custom software?</h2>
-  <p style="color:#9da9b8;margin:10px 0 0">Let's discuss your energy resilience goals or software engineering requirements.</p>
-</div>
-<a class="btn" href="contact.html">Start a conversation</a>
-</section>
+    <a class="btn" href="contact.html">Contact Engineering</a>
+  </section>
 </main>
 
 <footer>
-<div class="logo">Siddhi<span>X</span>Tech</div>
-<p>Intelligent home energy systems, AI automation, and digital products.</p>
-<div>
-  <a href="home.html">Home</a>
-  <a href="smart-home.html">Smart Home</a>
-  <a href="services.html">Software</a>
-  <a href="about.html">About</a>
-  <a href="privacy.html">Privacy</a>
-  <a href="terms.html">Terms</a>
-  <a href="contact.html">Contact</a>
-</div>
-<small>© 2026 SiddhiXTech. All rights reserved.</small>
+  <div class="logo">Siddhi<span>X</span>Tech</div>
+  <p>Intelligent home energy systems, AI automation, and digital products.</p>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="smart-home.html">Smart Home</a>
+    <a href="services.html">Software</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <small>© 2026 SiddhiXTech. All rights reserved.</small>
 </footer>
 
 <script>
-const scenarios = {
-  normal: {
-    solar: '6.4 kW',
-    solarPct: '75%',
-    wind: '1.8 kW',
-    windPct: '20%',
-    battery: '96% (Full)',
-    batteryPct: '96%',
-    batteryColor: '#00e676',
-    grid: 'Grid: Exporting',
-    gridPct: '10%',
-    alertPill: 'NORMAL SOLAR PRIORITY',
-    alertPillClass: 'green',
-    alertText: 'Optimal Generation: 100% Clean Energy',
-    alertDesc: 'Solar and micro wind are supplying the entire home. Excess power is trickle-charging batteries and feeding into the grid.'
-  },
-  storm: {
-    solar: '0.6 kW',
-    solarPct: '8%',
-    wind: '9.4 kW',
-    windPct: '90%',
-    battery: '100% (Protected)',
-    batteryPct: '100%',
-    batteryColor: '#00e5ff',
-    grid: 'Grid: Pre-Charging Active',
-    gridPct: '80%',
-    alertPill: 'RADAR STORM ALERT DETECTED',
-    alertPillClass: 'amber',
-    alertText: 'Storage Defense Mode Engaged',
-    alertDesc: 'Doppler radar detected incoming storm front. System topped off batteries to 100% and shed non-essential AC/EV loads to guarantee 48hr backup.'
-  },
-  blackout: {
-    solar: '3.2 kW',
-    solarPct: '40%',
-    wind: '2.1 kW',
-    windPct: '25%',
-    battery: '91% (Supplying)',
-    batteryPct: '91%',
-    batteryColor: '#ffb800',
-    grid: 'Grid: 0V (Outage Active)',
-    gridPct: '0%',
-    alertPill: 'GOVT GRID BLACKOUT ACTIVE',
-    alertPillClass: 'red',
-    alertText: 'Seamless 8ms Inverter Transfer',
-    alertDesc: 'Grid power failed. Inverter instantly took over essential home loads without appliance reboot or flicker. Non-essential high-draw appliances locked out.'
-  },
-  night: {
-    solar: '0.0 kW',
-    solarPct: '0%',
-    wind: '6.8 kW',
-    windPct: '70%',
-    battery: '88% (Balanced)',
-    batteryPct: '88%',
-    batteryColor: '#e040fb',
-    grid: 'Grid: Standby Off-Peak',
-    gridPct: '15%',
-    alertPill: 'NIGHT MICROGRID OPERATION',
-    alertPillClass: 'purple',
-    alertText: 'Wind Generation + Battery Smoothing',
-    alertDesc: 'Night wind turbine provides steady baseload power. Battery discharges minimally to power lights, HVAC, and refrigeration.'
-  }
-};
-
-function setSimMode(mode, btn) {
-  document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('active'));
+function filterProducts(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
-  const d = scenarios[mode];
-  if (!d) return;
-  document.getElementById('sim-solar-val').innerText = d.solar;
-  document.getElementById('sim-solar-bar').style.width = d.solarPct;
-  document.getElementById('sim-wind-val').innerText = d.wind;
-  document.getElementById('sim-wind-bar').style.width = d.windPct;
-  document.getElementById('sim-bat-val').innerText = d.battery;
-  document.getElementById('sim-bat-bar').style.width = d.batteryPct;
-  document.getElementById('sim-bat-bar').style.background = d.batteryColor;
-  document.getElementById('sim-grid-val').innerText = d.grid;
-  document.getElementById('sim-grid-bar').style.width = d.gridPct;
-  
-  const pill = document.getElementById('sim-alert-pill');
-  pill.className = 'pill ' + d.alertPillClass;
-  pill.innerHTML = '<i></i> ' + d.alertPill;
-  document.getElementById('sim-alert-title').innerText = d.alertText;
-  document.getElementById('sim-alert-desc').innerText = d.alertDesc;
+
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const cats = card.getAttribute('data-cat') || '';
+    if (category === 'all' || cats.includes(category)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function switchSurveillanceTab(panelId, btn) {
+  // Update aria-selected on all tabs
+  document.querySelectorAll('.surv-tab').forEach(t => {
+    t.setAttribute('aria-selected', 'false');
+  });
+  if (btn) btn.setAttribute('aria-selected', 'true');
+
+  // Hide all panels, show target
+  document.querySelectorAll('.tab-panel').forEach(p => {
+    p.classList.remove('active');
+  });
+  const target = document.getElementById(panelId);
+  if (target) {
+    target.classList.add('active');
+  }
 }
 </script>
 <script src="assets/script.js"></script>
