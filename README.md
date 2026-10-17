@@ -16,6 +16,7 @@ Official website for SiddhiXTech — focused primarily on **Intelligent Home & C
 
 ## Structure
 - `index.html` — Homepage spotlighting Intelligent Home primary focus + software services
+- `home.html` — Complete product ecosystem portal & customer insights across all offerings
 - `smart-home.html` — Deep dive into the Intelligent Home architecture and energy AI
 - `services.html` — Software development offerings
 - `about.html` — Vision, mission and principles

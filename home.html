@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SiddhiXTech — Complete Product Ecosystem & Customer Insights</title>
+<meta name="description" content="Discover all SiddhiXTech products and solutions: Intelligent Home energy microgrids, AI automation, mobile apps, enterprise web platforms, and white-label commerce.">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.filter-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 40px}
+.filter-btn{padding:9px 18px;border-radius:10px;border:1px solid #283546;background:#0d131c;color:#a8b4c4;font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
+.filter-btn:hover{background:#151e2c;color:#fff;border-color:#48576c}
+.filter-btn.active{background:linear-gradient(135deg,rgba(184,255,77,.2),rgba(118,227,255,.15));color:#fff;border-color:var(--accent);box-shadow:0 0 15px rgba(184,255,77,.18)}
+.product-card{display:flex;flex-direction:column;justify-content:space-between;border:1px solid #243040;background:linear-gradient(150deg,#0e141d,#0a0d13);border-radius:18px;padding:32px;transition:.25s;position:relative;overflow:hidden}
+.product-card:hover{transform:translateY(-4px);border-color:#3d4e66;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.product-badge{align-self:flex-start;margin-bottom:14px}
+.insight-box{margin-top:20px;padding:14px 16px;background:rgba(255,255,255,.03);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-size:13px;color:#cbd5e1}
+.insight-box strong{color:#fff;display:block;margin-bottom:3px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.customer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:35px}
+.customer-card{padding:28px;background:#0b0f15;border:1px solid #222c3a;border-radius:16px}
+.customer-card h3{margin:8px 0 10px;font-size:20px}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:35px}
+.faq-item{padding:26px;background:#0b0f16;border:1px solid #202936;border-radius:16px}
+.faq-item h3{margin:0 0 10px;font-size:17px;color:#fff}
+.faq-item p{margin:0;font-size:14px;color:#94a3b8;line-height:1.6}
+@media(max-width:800px){
+  .customer-grid,.faq-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="index.html">Siddhi<span>X</span>Tech</a>
+  <nav>
+    <a href="home.html" aria-current="page">Home</a>
+    <a href="smart-home.html">Smart Home</a>
+    <a href="services.html">Software</a>
+    <a href="about.html">About</a>
+    <a href="technology.html">Technology</a>
+    <a href="infrastructure.html">Infrastructure</a>
+    <a href="academy.html">Academy</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a class="nav-btn" href="contact.html">Start a project</a>
+  </nav>
+</header>
+
+<main class="page">
+  <div class="kicker"><i></i> COMPLETE PRODUCT ECOSYSTEM • CUSTOMER PORTAL</div>
+  <div class="eyebrow">ONE TECHNOLOGY POWERHOUSE</div>
+  <h1>Smart hardware. Intelligent AI. <span>Engineered to scale.</span></h1>
+  <p class="lead">Welcome to the SiddhiXTech product portal. Explore our comprehensive portfolio: from autonomous, blackout-proof smart home microgrids to enterprise AI automation, mobile apps, and multi-tenant digital commerce.</p>
+
+  <div class="actions" style="margin-top:-20px;margin-bottom:60px">
+    <a class="btn" href="#products">Explore All Products</a>
+    <a class="btn secondary" href="smart-home.html">Try Energy Simulator</a>
+    <a class="text-link" href="contact.html">Discuss a project →</a>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats" style="margin:0 0 70px">
+    <div><b>01</b><span>Smart Home Microgrids</span></div>
+    <div><b>02</b><span>AI & Neural Systems</span></div>
+    <div><b>03</b><span>Mobile & Web Platforms</span></div>
+    <div><b>04</b><span>White-Label Commerce</span></div>
+  </div>
+
+  <!-- PRODUCTS SECTION -->
+  <section id="products" style="padding-bottom:70px">
+    <div style="max-width:700px">
+      <div class="eyebrow">ALL PRODUCTS & PLATFORM INSIGHTS</div>
+      <h2>Engineered for real-world impact and reliability.</h2>
+      <p class="lead" style="margin-bottom:20px">Filter our solutions by category to see technical capabilities and customer insights:</p>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="filter-tabs">
+      <button type="button" class="filter-btn active" onclick="filterProducts('all', this)">All Products (6)</button>
+      <button type="button" class="filter-btn" onclick="filterProducts('energy', this)">⚡ Intelligent Energy</button>
+      <button type="button" class="filter-btn" onclick="filterProducts('software', this)">💻 Software & Apps</button>
+      <button type="button" class="filter-btn" onclick="filterProducts('ai', this)">🤖 AI & Automation</button>
+      <button type="button" class="filter-btn" onclick="filterProducts('commerce', this)">🛍️ Retail & White-Label</button>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="cards" id="products-grid">
+      
+      <!-- Product 1: Intelligent Home Energy -->
+      <div class="product-card" data-cat="energy">
+        <div>
+          <span class="pill green product-badge"><i></i> CLEAN ENERGY & MICROGRIDS</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">Intelligent Home & AI Microgrid</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">An autonomous home energy system coordinating rooftop Solar PV, micro Wind turbines, Inverters, and automated Petrol/Diesel generators. Synchronizes with real-time Doppler weather radar and government outage schedules to preserve battery storage before blackouts occur.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>Zero blackout risk with 8ms instant power transfer</li>
+            <li>Weather radar anticipation & storage pre-charging</li>
+            <li>Automated load balancing to cut electricity bills by up to 70%</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Designed for homeowners, estates, and remote properties seeking complete energy autonomy and zero blackout disruption.
+          </div>
+          <a class="btn secondary" href="smart-home.html" style="margin-top:18px;display:inline-block">View Full System Specs →</a>
+        </div>
+      </div>
+
+      <!-- Product 2: AI & GenAI Systems -->
+      <div class="product-card" data-cat="ai software">
+        <div>
+          <span class="pill purple product-badge"><i></i> ARTIFICIAL INTELLIGENCE</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">GenAI & Autonomous Agents</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">Enterprise AI solutions powered by Large Language Models, Retrieval-Augmented Generation (RAG), and multi-agent workflows. We turn proprietary business documentation and data into intelligent chatbots, copilot tools, and process automation.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>RAG vector search over internal company knowledge bases</li>
+            <li>Autonomous AI agents for repetitive back-office tasks</li>
+            <li>Secure private on-premise or cloud LLM deployments</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Built for enterprises and modern teams looking to eliminate manual data entry, accelerate research, and automate customer service.
+          </div>
+          <a class="btn secondary" href="services.html" style="margin-top:18px;display:inline-block">Explore AI Services →</a>
+        </div>
+      </div>
+
+      <!-- Product 3: Mobile & Android Apps -->
+      <div class="product-card" data-cat="software">
+        <div>
+          <span class="pill cyan product-badge"><i></i> MOBILE APPLICATIONS</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">Android & Mobile Applications</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">High-performance native Android (Kotlin) and cross-platform mobile apps. From IoT hardware controllers with real-time Bluetooth/Wi-Fi telemetry to customer-facing booking, delivery, and marketplace applications.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>IoT device pairing, Bluetooth LE, and hardware telemetry</li>
+            <li>Push notifications, Firebase backend, and secure auth</li>
+            <li>In-app subscriptions, UPI / card payments, and live tracking</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Ideal for startups launching consumer apps and IoT hardware companies requiring sleek, responsive mobile controllers.
+          </div>
+          <a class="btn secondary" href="services.html" style="margin-top:18px;display:inline-block">View Mobile Solutions →</a>
+        </div>
+      </div>
+
+      <!-- Product 4: Enterprise Web Platforms -->
+      <div class="product-card" data-cat="software">
+        <div>
+          <span class="pill amber product-badge"><i></i> WEB ARCHITECTURE</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">Enterprise Web & Cloud SaaS</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">Modern web applications, SaaS dashboards, and data-intensive portals. Designed with robust role-based access control, PostgreSQL databases, high-throughput APIs, and responsive glassmorphic UI systems.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>Real-time telemetry and IoT monitoring dashboards</li>
+            <li>Role-based access control (RBAC) and audit logging</li>
+            <li>Scalable cloud backends deployed on AWS / Google Cloud</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Essential for businesses replacing outdated spreadsheets and legacy systems with secure, real-time web portals.
+          </div>
+          <a class="btn secondary" href="services.html" style="margin-top:18px;display:inline-block">Explore Web Platforms →</a>
+        </div>
+      </div>
+
+      <!-- Product 5: White-Label Commerce -->
+      <div class="product-card" data-cat="commerce software">
+        <div>
+          <span class="pill green product-badge"><i></i> DIGITAL COMMERCE</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">White-Label Commerce Platform</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">A turnkey multi-tenant eCommerce engine. Allows platform owners to provision separate, fully-branded digital storefronts and mobile apps for individual shopkeepers while operating one centralized administration backend.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>Unique app identity, catalogue, and branding per shop</li>
+            <li>Centralized order fulfillment, payment splitting, and inventory</li>
+            <li>Integrated loyalty rewards, referrals, and commission tracking</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Perfect for regional retailer associations, franchises, and entrepreneurs creating multi-merchant marketplace ecosystems.
+          </div>
+          <a class="btn secondary" href="services.html" style="margin-top:18px;display:inline-block">Learn About White-Label →</a>
+        </div>
+      </div>
+
+      <!-- Product 6: Academy & Labs -->
+      <div class="product-card" data-cat="energy ai software">
+        <div>
+          <span class="pill cyan product-badge"><i></i> EDUCATION & RESEARCH</span>
+          <h3 style="font-size:24px;margin:8px 0 12px">SiddhiXTech Academy & Labs</h3>
+          <p style="color:#94a3b8;font-size:15px;line-height:1.6">A practical engineering academy bridging academic learning with real-world technology. Students and professionals work with actual IoT energy hardware, GPU compute infrastructure, and production software deployment pipelines.</p>
+          <ul class="list" style="margin-top:14px">
+            <li>Smart Energy & Microgrid hardware engineering</li>
+            <li>Applied Machine Learning and Generative AI pipelines</li>
+            <li>Cloud DevOps, containerization, and microservices</li>
+          </ul>
+        </div>
+        <div>
+          <div class="insight-box">
+            <strong>Customer Insight</strong>
+            Aimed at aspiring engineers, university students, and technology organizations seeking hands-on talent development.
+          </div>
+          <a class="btn secondary" href="academy.html" style="margin-top:18px;display:inline-block">Discover the Academy →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHO WE BUILD FOR -->
+  <section class="section" style="padding-left:0;padding-right:0;padding-top:20px;padding-bottom:60px">
+    <div class="eyebrow">CUSTOMER PROFILES</div>
+    <h2>Tailored value for every customer segment.</h2>
+    <p class="lead" style="margin-bottom:0">How our technology delivers tangible return on investment across different customer types:</p>
+
+    <div class="customer-grid">
+      <div class="customer-card">
+        <span class="pill green"><i></i> FOR HOMEOWNERS & ESTATES</span>
+        <h3>Zero Blackouts & Power Security</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.6">Enjoy complete independence from grid failures. Our AI monitors storm fronts and preserves battery reserves so your lights, Wi-Fi, air conditioning, and medical equipment stay powered 24/7, while cutting grid power bills by up to 70%.</p>
+      </div>
+
+      <div class="customer-card">
+        <span class="pill cyan"><i></i> FOR STARTUPS & FOUNDERS</span>
+        <h3>Rapid Concept-to-Production Velocity</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.6">Turn your idea into a production-grade digital business. From architectural design to native mobile apps and scalable cloud backends, we build clean, maintainable software ready for venture scale.</p>
+      </div>
+
+      <div class="customer-card">
+        <span class="pill amber"><i></i> FOR RETAIL & FRANCHISES</span>
+        <h3>Turnkey Branded Apps & Automation</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.6">Empower every store in your network with its own custom branded mobile ordering app without building from scratch. Manage orders, inventory, and payments from one centralized control plane.</p>
+      </div>
+
+      <div class="customer-card">
+        <span class="pill purple"><i></i> FOR ENTERPRISES</span>
+        <h3>Secure AI & Resilient Infrastructure</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.6">Integrate private Generative AI agents, internal knowledge search, and custom IoT telemetry dashboards into your existing workflows with enterprise-grade security and compliance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREQUENTLY ASKED QUESTIONS -->
+  <section class="section" style="padding-left:0;padding-right:0;padding-bottom:70px">
+    <div class="eyebrow">CUSTOMER FAQ</div>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>How does the Intelligent Home predict power cuts?</h3>
+        <p>Our IoT edge controller connects to the internet to ingest real-time Doppler meteorological radar feeds, storm tracks, and municipal load-shedding schedules. When severe weather or a grid cut is imminent, it engages Storage Defense Mode to pre-charge batteries to 100%.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can SiddhiXTech build both hardware and software?</h3>
+        <p>Yes. We have deep full-stack capabilities ranging from IoT firmware, inverter communication protocols, and energy sensors, up to mobile apps (Kotlin/Android), cloud APIs, and web dashboards.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can existing solar or inverters be upgraded?</h3>
+        <p>In many cases, yes. Our smart controller can interface with existing hybrid inverters and battery banks via RS485/Modbus or auxiliary relays to add predictive AI automation without replacing your existing panels.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I start a project with SiddhiXTech?</h3>
+        <p>Simply reach out via our contact page or email us directly at support@siddhixtech.com. We schedule an engineering consultation to understand your requirements, evaluate site or software specs, and provide a clear timeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION BANNER -->
+  <section class="banner" style="margin-left:0;margin-right:0">
+    <div>
+      <div class="eyebrow">READY TO BUILD?</div>
+      <h2>Let's turn your vision into intelligent technology.</h2>
+      <p style="color:#9da9b8;margin:10px 0 0">Whether you need an autonomous home microgrid or custom software development, our engineering team is ready.</p>
+    </div>
+    <a class="btn" href="contact.html">Contact Engineering</a>
+  </section>
+</main>
+
+<footer>
+  <div class="logo">Siddhi<span>X</span>Tech</div>
+  <p>Intelligent home energy systems, AI automation, and digital products.</p>
+  <div>
+    <a href="home.html">Home</a>
+    <a href="smart-home.html">Smart Home</a>
+    <a href="services.html">Software</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <small>© 2026 SiddhiXTech. All rights reserved.</small>
+</footer>
+
+<script>
+function filterProducts(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const cats = card.getAttribute('data-cat') || '';
+    if (category === 'all' || cats.includes(category)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+<script src="assets/script.js"></script>
+</body>
+</html>
